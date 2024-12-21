@@ -12,9 +12,6 @@ body {
   font-size: 24px;
 }
 
-nav {
-  background-color: #cdfa46;
-}
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -36,7 +33,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: #555;
+  background-color: #cdfa46;
 }
 
 .section {
