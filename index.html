@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viral hit community</title>
+  <title>Wiggas Community</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <div class="top-bar">Viral hit Community</div>
-    <nav class="down-bar">
+    <div class="top-bar">Wiggas Community</div>
+    <nav>
       <ul>
         <li><a href="#" onclick="showSection('home')">Home</a></li>
         <li><a href="#" onclick="showSection('recent')">Recent</a></li>
+        <li><a href="#" onclick="showSection('popular')">Popular</a></li>
         <li><a href="#" onclick="showSection('groupChats')">Group Chats</a></li>
       </ul>
     </nav>
@@ -37,6 +38,17 @@
       <div class="post" onclick="openArticle('Article 2 - Recent', 'Content of the second article in Recent section.')">
         <img src="https://via.placeholder.com/300" alt="Post Image">
         <h2>Article 2 - Recent</h2>
+      </div>
+    </section>
+
+    <section id="popular" class="section">
+      <div class="post" onclick="openArticle('Article 1 - Popular', 'Content of the first article in Popular section.')">
+        <img src="https://via.placeholder.com/300" alt="Post Image">
+        <h2>Article 1 - Popular</h2>
+      </div>
+      <div class="post" onclick="openArticle('Article 2 - Popular', 'Content of the second article in Popular section.')">
+        <img src="https://via.placeholder.com/300" alt="Post Image">
+        <h2>Article 2 - Popular</h2>
       </div>
     </section>
 
