@@ -17,7 +17,7 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
-  background-color: #cdfa46;
+  background-color: #444;
 }
 
 nav ul li {
@@ -33,7 +33,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: #cdfa46;
+  background-color: #555;
 }
 
 .section {
@@ -73,6 +73,20 @@ nav ul li a:hover {
 }
 
 .modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+modal-content {
   background-color: white;
   padding: 20px;
   border-radius: 5px;
