@@ -12,6 +12,7 @@ body {
   font-size: 24px;
 }
 
+/*
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -19,6 +20,12 @@ nav ul {
   display: flex;
   background-color: #444;
 }
+*/
+.down-bar {
+  background-color: pink;
+  color: white;
+}
+
 
 nav ul li {
   flex: 1;
