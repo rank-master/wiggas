@@ -36,6 +36,20 @@ nav ul li {
 }
 
 
+.small-image {
+  float: left;
+  width: 50px; /* Adjust image size */
+  height: 50px;
+  margin-right: 10px; /* Space between image and text */
+  object-fit: cover;
+  border-radius: 5px; /* Optional: Adds rounded corners to the image */
+}
+
+.text-content {
+  overflow: hidden; /* Ensures text wraps correctly around the floated image */
+}
+
+
 .section {
   display: none;
   padding: 20px;
