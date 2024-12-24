@@ -19,14 +19,14 @@ nav ul {
     margin: 0;
     padding: 4px;
     display: flex;
-    color: #e11ea9;
+    color: white;
 }
 
 .logo {
     margin-bottom: 10px;
     font-size: 35px;
     font-family: cursive;
-    color: #e11ea9;
+    color: white;
 }
 
 nav ul li {
@@ -37,7 +37,7 @@ nav ul li {
 
 /* This targets the links in the navigation bar */
 nav ul li a {
-  color: #e11ea9; /* Set the default color of the links (for example, pinkish) */
+  color: white; /* Set the default color of the links (for example, pinkish) */
   text-decoration: none; /* Remove underline from links */
 }
 
