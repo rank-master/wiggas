@@ -2,10 +2,11 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background: lightsteelblue;
 }
 
 nav {
-    background-color: #37a1d5; /*changes the cakground color of the header*/
+    background-color: #202125;
     color: white;
     padding: 15px;
     text-align: centre;
@@ -14,23 +15,28 @@ nav {
 
 nav ul {
     font-size: 16px;
-    background-color: #37a1d5; /*change the color*/
+    background-color: #202125; /*change the color*/
     list-style-type: none;
     margin: 0;
     padding: 4px;
     display: flex;
-    color: white;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
 }
 
 .logo {
     margin-bottom: 10px;
     font-size: 35px;
+    font-family: "Gochi Hand", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: 700;
     color: white;
 }
 
 nav ul li {
     flex: 1;
-    color: #e11ea9;
+    color: white;
     text-align: center;
 }
 
@@ -42,7 +48,7 @@ nav ul li a {
 
 /* This is for when the user hovers over the links */
 nav ul li a:hover {
-  color: #fff; /* Change the color to white on hover */
+  color: lightsteelblue; /* Change the color to white on hover */
 }
 
 
@@ -73,14 +79,14 @@ nav ul li a:hover {
     font-size: 14px; /* Smaller text size for the description */
     color: #666666; /* Lighter grey color for the text */
     line-height: 1.6; /* Line height adjustment for better readability */
-    margin: 3px 0; /* Small margin above and below the text */
+    margin: 5px 0; /* Small margin above and below the text */
 }
 
 .post span {
     font-size: 10px; /* Smaller text size for the description */
     color: #666666; /* Lighter grey color for the text */
     line-height: 1.6; /* Line height adjustment for better readability */
-    margin: 0px 0; /* Small margin above and below the text */
+    margin: px 0; /* Small margin above and below the text */
 }
 
 
