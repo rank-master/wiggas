@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiggas Community</title>
+  <link rel="stylesheet" href="C:\Users\lain06\9ties\css\styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">viralhit.online</div>
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('groupChats')">Group Chats</a></li>
+            <li><a href="#" onclick="showSection('popular')">About us</a></li>
+        </ul>
+    </nav>
+    <main>
+      <!--home_page -->
+        <section id="home" class="section active">
+          <a href="html\Baka_Sis_Latest_Love_Interest.html" class="post">
+            <img src="images\IMG_20230619_133831_231.jpg" alt="Baka Sis' current state">
+            <div>
+              <h2>Baka Sis's Latest Love Interest: Age Gap Raises Eyebrows?</h2>
+              <p>Baka Sis, known for her dynamic personality and numerous romantic escapades,
+                has once again...</p>
+              <span>Published on: 17th April 2023</span>
+            </div>
+          </a>          
+          <div class="post" onclick="openArticle('Article 2 - Home', 'Content of the second article in Home section.')">
+            <img src="https://via.placeholder.com/300" alt="Post Image">
+            <h2>Article 2 - Home</h2>
+          </div>
+        </section>
+    
+        <section id="recent" class="section">
+          <div class="post" onclick="openArticle('Article 1 - Recent', 'Content of the first article in Recent section.')">
+            <img src="https://via.placeholder.com/300" alt="Post Image">
+            <h2>Article 1 - Recent</h2>
+          </div>
+          <div class="post" onclick="openArticle('Article 2 - Recent', 'Content of the second article in Recent section.')">
+            <img src="https://via.placeholder.com/300" alt="Post Image">
+            <h2>Article 2 - Recent</h2>
+          </div>
+        </section>
+    
+        <section id="popular" class="section">
+          <div class="post" onclick="openArticle('Article 1 - Popular', 'Content of the first article in Popular section.')">
+            <img src="https://via.placeholder.com/300" alt="Post Image">
+            <h2>Article 1 - Popular</h2>
+          </div>
+          <div class="post" onclick="openArticle('Article 2 - Popular', 'Content of the second article in Popular section.')">
+            <img src="https://via.placeholder.com/300" alt="Post Image">
+            <h2>Article 2 - Popular</h2>
+          </div>
+        </section>
+    
+        <section id="groupChats" class="section">
+          <div class="post" onclick="openArticle('Article 1 - Group Chats', 'Content of the first article in Group Chats section.')">
+            <img src="https://via.placeholder.com/300" alt="Post Image">
+            <h2>Article 1 - Group Chats</h2>
+          </div>
+          <div class="post" onclick="openArticle('Article 2 - Group Chats', 'Content of the second article in Group Chats section.')">
+            <img src="https://via.placeholder.com/300" alt="Post Image">
+            <h2>Article 2 - Group Chats</h2>
+          </div>
+        </section>
+      </main>
+      <script src="script.js"></script>
+    
+</body>
+</html>
