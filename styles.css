@@ -70,6 +70,20 @@ nav ul li a:hover {
   color: blue; /* Change the color to white on hover */
 }
 
+.post p {
+    font-size: 14px; /* Smaller text size for the description */
+    color: #666666; /* Lighter grey color for the text */
+    line-height: 1.6; /* Line height adjustment for better readability */
+    margin: 5px 0; /* Small margin above and below the text */
+}
+
+.post span {
+    font-size: 14px; /* Smaller text size for the description */
+    color: #666666; /* Lighter grey color for the text */
+    line-height: 1.6; /* Line height adjustment for better readability */
+    margin: 5px 0; /* Small margin above and below the text */
+}
+
 
 .post img {
   width: 80px; /* Adjust size of the image */
