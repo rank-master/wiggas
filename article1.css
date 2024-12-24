@@ -73,6 +73,7 @@ h2 {
 }
 
  p {
+      color: white;
       padding: 10px; /* Space inside the paragraph */
       margin: 0; /* Remove default margin for the paragraph */
     }
