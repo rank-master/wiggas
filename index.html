@@ -16,11 +16,17 @@
         </ul>
     </nav>
     <main>
+      //home_page 
         <section id="home" class="section active">
-          <div class="post" onclick="openArticle('Article 1 - Home', 'Content of the first article in Home section.')">
-            <img src="" alt="Post Image" class="small-image">
-            <h2 class="text-content">Baka Sis's Latest Love Interest: Age Gap Raises Eyebrows?</h2>
-          </div>
+          <a href="html\Baka_Sis_Latest_Love_Interest.html" class="post">
+            <img src="images\IMG_20230619_133831_231.jpg" alt="Baka Sis' current state">
+            <div>
+              <h2>Baka Sis's Latest Love Interest: Age Gap Raises Eyebrows?</h2>
+              <p>Baka Sis, known for her dynamic personality and numerous romantic escapades,
+                has once again...</p>
+              <span>Published on: 17th April 2023</span>
+            </div>
+          </a>          
           <div class="post" onclick="openArticle('Article 2 - Home', 'Content of the second article in Home section.')">
             <img src="https://via.placeholder.com/300" alt="Post Image">
             <h2>Article 2 - Home</h2>
@@ -60,13 +66,6 @@
           </div>
         </section>
       </main>
-      <div id="article-modal" class="modal">
-        <div class="modal-content">
-          <h1 id="article-title"></h1>
-          <p id="article-content"></p>
-          <button onclick="closeArticle()">Close</button>
-        </div>
-      </div>
       <script src="script.js"></script>
     
 </body>
