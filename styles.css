@@ -36,18 +36,16 @@ nav ul li {
 }
 
 
-.small-image {
+/*.small-image {
   float: left;
-  width: 10px; /* Adjust image size */
-  height: 50px;
-  margin-right: 10px; /* Space between image and text */
+  margin-right: 10px;
   object-fit: cover;
-  border-radius: 5px; /* Optional: Adds rounded corners to the image */
+  border-radius: 5px; 
 }
 
 .text-content {
-  overflow: hidden; /* Ensures text wraps correctly around the floated image */
-}
+  overflow: hidden; Ensures text wraps correctly around the floated image 
+} */
 
 
 .section {
@@ -60,19 +58,25 @@ nav ul li {
 }
 
 .post {
+  display: flex; /* Flexbox for side-by-side layout */
+  align-items: center; /* Align image and heading vertically centered */
   margin-bottom: 20px;
   cursor: pointer;
+  gap: 10px; /* Space between the image and the heading */
 }
 
 .post img {
-  width: 10%;
-  max-width: 30px;
-  display: block;
+  width: 50px; /* Adjust size of the image */
+  height: 50px; /* Keep it square */
+  object-fit: cover; /* Ensure the image doesn't distort */
+  border-radius: 5px; /* Optional: Rounded corners */
 }
 
 .post h2 {
-  margin: 10px 0 0;
+  margin: 0; /* Remove default margin */
+  font-size: 16px; /* Adjust heading size */
 }
+
 
 .modal {
   display: none;
