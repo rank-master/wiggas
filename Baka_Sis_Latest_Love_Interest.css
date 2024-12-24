@@ -65,8 +65,8 @@ h2 {
 
 /* Add styles for the image below the heading */
 .article-image {
-    width: 100%; /* Makes the image fill the width of the page */
-    height: auto; /* Keeps the image's aspect ratio */
+    width: 80px; /* Makes the image fill the width of the page */
+    height: 80px; /* Keeps the image's aspect ratio */
     margin-top: 20px; /* Adds some space above the image */
     margin-bottom: 20px; /* Adds some space below the image */
     border-radius: 8px; /* Optional: Rounds the corners of the image */
