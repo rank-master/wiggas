@@ -1,68 +1,85 @@
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+    background-color: #202125;
+    color: white;
+    padding: 15px;
+    text-align: centre;
+    font-size: 24px;
+}
+
+nav ul {
+    font-size: 16px;
+    background-color: #202125; /*change the color*/
+    list-style-type: none;
     margin: 0;
-    padding: 0;
-  }
-  
-  nav {
-      background-color: #202125;
-      color: white;
-      padding: 15px;
-      text-align: centre;
-      font-size: 24px;
-  }
-  
-  nav ul {
-      font-size: 16px;
-      background-color: #202125; /*change the color*/
-      list-style-type: none;
-      margin: 0;
-      padding: 4px;
-      display: flex;
-      color: #e11ea9;
-  }
-  
-  .logo {
-      margin-bottom: 10px;
-      font-size: 35px;
-      font-family: cursive;
-      color: #e11ea9;
-  }
-  
-  nav ul li {
-      flex: 1;
-      color: #e11ea9;
-      text-align: center;
-  }
-  
-  
-  .section {
-    display: none;
-    padding: 20px;
-  }
-  
-  .section.active {
-    display: block;
-  }
-  
-  .post {
-    display: flex; /* Flexbox for side-by-side layout */
-    align-items: center; /* Align image and heading vertically centered */
-    margin-bottom: 20px;
-    cursor: pointer;
-    gap: 10px; /* Space between the image and the heading */
-  }
-  
-  .post img {
-    width: 80px; /* Adjust size of the image */
-    height: 80px; /* Keep it square */
-    object-fit: cover; /* Ensure the image doesn't distort */
-    border-radius: 5px; /* Optional: Rounded corners */
-  }
-  
-  .post h2 {
-    margin: 0; /* Remove default margin */
-    font-size: 16px; /* Adjust heading size */
-  }
-  
-  
+    padding: 4px;
+    display: flex;
+    color: #e11ea9;
+}
+
+.logo {
+    margin-bottom: 10px;
+    font-size: 35px;
+    font-family: cursive;
+    color: #e11ea9;
+}
+
+nav ul li {
+    flex: 1;
+    color: #e11ea9;
+    text-align: center;
+}
+
+/* This targets the links in the navigation bar */
+nav ul li a {
+  color: #e11ea9; /* Set the default color of the links (for example, pinkish) */
+  text-decoration: none; /* Remove underline from links */
+}
+
+/* This is for when the user hovers over the links */
+nav ul li a:hover {
+  color: #fff; /* Change the color to white on hover */
+}
+
+
+.section {
+  display: none;
+  padding: 20px;
+}
+
+.section.active {
+  display: block;
+}
+
+.post {
+  display: flex; /* Flexbox for side-by-side layout */
+  align-items: center; /* Align image and heading vertically centered */
+  margin-bottom: 20px;
+  cursor: pointer;
+  gap: 10px; /* Space between the image and the heading */
+  color: black;
+  text-decoration: none;
+}
+
+.post:hover {
+  color: blue; /* Change the color to white on hover */
+}
+
+
+.post img {
+  width: 80px; /* Adjust size of the image */
+  height: 80px; /* Keep it square */
+  object-fit: cover; /* Ensure the image doesn't distort */
+  border-radius: 5px; /* Optional: Rounded corners */
+}
+
+
+.post h2 {
+  margin: 0; /* Remove default margin */
+  font-size: 16px; /* Adjust heading size */
+}
