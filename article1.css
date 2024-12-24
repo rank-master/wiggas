@@ -6,7 +6,6 @@ body {
   padding: 0;
   background: #202125;
   color: white; /* text color is white */
-  padding: 9px;
 }
 
 nav {
@@ -32,7 +31,6 @@ nav ul {
     margin-bottom: 10px;
     font-size: 35px;
     font-family: "Gochi Hand", serif;
-    font-weight: 400;
     font-style: normal;
     font-weight: 700;
     color: white;
@@ -64,6 +62,10 @@ h2 {
     color: gray; /* Subtle color for the date */
     margin-bottom: 10px; /* Add space after the date */
   }
+
+.article-content {
+    padding: 20px; /* Adjust this padding value as per your design */
+}
 
 /* Add styles for the image below the heading */
 .article-image {
