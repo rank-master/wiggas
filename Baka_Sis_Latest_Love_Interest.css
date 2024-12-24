@@ -4,7 +4,6 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: lightsteelblue;
 }
 
 nav {
@@ -72,4 +71,8 @@ h2 {
     border-radius: 8px; /* Optional: Rounds the corners of the image */
 }
 
+ p {
+      padding: 10px; /* Space inside the paragraph */
+      margin: 0; /* Remove default margin for the paragraph */
+    }
   
