@@ -1,0 +1,10 @@
+h2 {
+    margin-bottom: 5px; /* Reduce space below the heading */
+  }
+  
+  .date {
+    font-size: 0.9em; /* Slightly smaller font size for the date */
+    color: gray; /* Subtle color for the date */
+    margin-bottom: 10px; /* Add space after the date */
+  }
+  
