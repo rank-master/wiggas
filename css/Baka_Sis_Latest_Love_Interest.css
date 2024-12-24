@@ -1,3 +1,58 @@
+/*header starts*/
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: lightsteelblue;
+}
+
+nav {
+    background-color: #202125;
+    color: white;
+    padding: 15px;
+    text-align: centre;
+    font-size: 24px;
+}
+
+nav ul {
+    font-size: 16px;
+    background-color: #202125; /*change the color*/
+    list-style-type: none;
+    margin: 0;
+    padding: 4px;
+    display: flex;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+}
+
+.logo {
+    margin-bottom: 10px;
+    font-size: 35px;
+    font-family: "Gochi Hand", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: 700;
+    color: white;
+}
+
+nav ul li {
+    flex: 1;
+    color: white;
+    text-align: center;
+}
+
+/* This targets the links in the navigation bar */
+nav ul li a {
+  color: white; /* Set the default color of the links (for example, pinkish) */
+  text-decoration: none; /* Remove underline from links */
+}
+
+/* This is for when the user hovers over the links */
+nav ul li a:hover {
+  color: lightsteelblue; /* Change the color to white on hover */
+}
+/* header ends */
 h2 {
     margin-bottom: 5px; /* Reduce space below the heading */
   }
