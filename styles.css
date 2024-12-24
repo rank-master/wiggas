@@ -67,7 +67,7 @@ nav ul li a:hover {
   margin-bottom: 20px;
   cursor: pointer;
   gap: 10px; /* Space between the image and the heading */
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
