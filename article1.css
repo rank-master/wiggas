@@ -84,6 +84,15 @@ h2 {
     border-radius: 8px; /* Optional: Rounds the corners of the image */
 }
 
+.image-caption {
+  font-size: 12px;      /* Small font size for captions */
+  color: gray;          /* Light gray color for captions */
+  text-align: center;   /* Center-align the caption */
+  margin-top: 5px;      /* Space between the image and the caption */
+  font-style: italic;   /* Optional: Make the text italic for a classic look */
+}
+
+
  p {
       padding: 10px; /* Space inside the paragraph */
       margin: 0; /* Remove default margin for the paragraph */
