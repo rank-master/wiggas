@@ -116,11 +116,3 @@ nav ul li a:hover {
   color: white;
 }
 
-.game-section #ludo-board {
-  display: grid;
-  grid-template-columns: repeat(9, 50px);
-  grid-gap: 2px;
-  background-color: white;
-  border: 2px solid #000;
-}
-
