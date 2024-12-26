@@ -17,7 +17,7 @@
         <ul>
             <li><a href="#" onclick="showSection('home')">Home</a></li>
             <li><a href="#" onclick="showSection('groupChats')">Group Chats</a></li>
-            <li><a href="#" onclick="showSection('aboutUs')">About us</a></li>
+            <li><a href="#" onclick="showSection('Ludo')">Ludo</a></li>
         </ul>
     </nav>
     <main>
@@ -68,12 +68,34 @@
          <a href="https://ig.me/j/AbbuWLjSqCdwy9zv/">https://ig.me/j/AbbuWLjSqCdwy9zv/</a>  
         </section>
 
-        <section id="aboutUs" class="section">
-         <p>Details will be added soon</p>
+        <section id="Ludo" class="game-section">
+         <header>
+          <h1>Ludo Multiplayer Game</h1>
+         </header>
+
+         <main>
+          <div id="game-container">
+           <!-- Ludo Board -->
+           <div id="ludo-board">
+            <!-- Dynamic board grid will be created with JS -->
+           </div>
+
+           <!-- Dice Roll -->
+           <div id="controls">
+            <button id="roll-dice">Roll Dice</button>
+            <p id="dice-result">Dice: 0</p>
+           </div>
+
+           <!-- Leaderboard -->
+           <div id="leaderboard">
+            <h2>Leaderboard</h2>
+            <ol id="leaderboard-list"></ol>
+           </div>
+          </div>
+         </main>
         </section>
     
       </main>
       <script src="script.js"></script>
-      <script src="loadHeader.js"></script>
 </body>
 </html>
