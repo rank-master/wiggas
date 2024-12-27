@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+e<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -68,17 +68,33 @@
          <a href="https://ig.me/j/AbbuWLjSqCdwy9zv/">https://ig.me/j/AbbuWLjSqCdwy9zv/</a>  
         </section>
 
-        <section id="Ludo" class="game-section">
-          <div id="game-container">
-            <div id="ludo-board"></div>
-            <div id="controls">
-              <button id="roll-dice">Roll Dice</button>
-              <p id="dice-result"></p>
+        <section id="ludo-section">
+          <h2>Online Ludo Game</h2>
+          <!-- Player Setup -->
+          <div id="player-setup">
+            <input type="text" id="player-name" placeholder="Enter your name" required />
+            <button id="start-game">Start Game</button>
+            <button id="join-game">Join Game</button>
+            <input type="text" id="room-code" placeholder="Enter room code" style="display: none;" />
+          </div>
+
+          <!-- Game Area -->
+          <div id="ludo-game-area" style="display: none;">
+            <div id="ludo-board">
+            <!-- Ludo board will be rendered here -->
             </div>
-            <div id="leaderboard">
-              <h3>Leaderboard</h3>
-              <ul id="leaderboard-list"></ul>
+            <div id="chat-area">
+              <h3>Chat</h3>
+              <div id="chat-messages"></div>
+              <input type="text" id="chat-input" placeholder="Type a message" />
+              <button id="send-chat">Send</button>
             </div>
+          </div>
+
+          <!-- Leaderboard -->
+          <div id="leaderboard" style="display: none;">
+            <h3>Leaderboard</h3>
+            <ol id="leaderboard-list"></ol>
           </div>
         </section>
 
