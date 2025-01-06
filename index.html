@@ -1,49 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Tic tac toe">
-  <meta name="keywords"
-        content="HTML, CSS, JavaScript, tic tac toe, ucode, unitfactory, cbl, cblworld">
-  <meta name="author" content="Tetiana Rohalska">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic Tac Toe</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
-        rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap"
-        rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+        }
+        .cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            font-size: 2em;
+            border: 2px solid #333;
+            cursor: pointer;
+        }
+        .cell.taken {
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-  <h1 id="title">Tic tac toe</h1>
-  <main>
-    <section id="startBox" class="sidebar">
-      <label for="player1_name">Player 1:</label>
-      <input type="text" id="player1_name" maxlength="20" placeholder="Player 'X'"/>
-      <label for="player2_name">Player 2:</label>
-      <input type="text" id="player2_name" maxlength="20" placeholder="Player 'O'"/>
-      <label for="columns">Columns:</label>
-      <input type="number" id="columns" min="3" max="10" placeholder="3"/>
-      <label for="rows">Rows:</label>
-      <input type="number" id="rows" min="3" max="10" placeholder="3"/>
-      <label for="steps">Winn length: </label>
-      <input type="number" id="steps" min="3" max="10" placeholder="3"/>
-      <button id="start" class="button_box">START</button>
-    </section>
-    <section id="field">
-    </section>
-    <section class="sidebar">
-      <p id="player1" class="button_box">-</p>
-      <p id="player2" class="button_box">-</p>
-      <div id="turns">
-        <p id="titleTurns">Number of turns</p>
-        <p id="numberTurns">0</p>
-      </div>
-      <h2 id="status"></h2>
-      <button id="playAgain" class="button_box">PLAY AGAIN</button>
-      <button id="restart" class="button_box">RESTART</button>
-    </section>
-  </main>
-  <script src="script.js"></script>
+    <div class="board" id="board"></div>
+    <script>
+        const board = document.getElementById('board');
+        let currentPlayer = 'X';
+        const cells = [];
+
+        function createBoard() {
+            for (let i = 0; i < 9; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.dataset.index = i;
+                cell.addEventListener('click', handleClick);
+                board.appendChild(cell);
+                cells.push(cell);
+            }
+        }
+
+        function handleClick(event) {
+            const cell = event.target;
+            cell.textContent = currentPlayer;
+            cell.classList.add('taken');
+            if (checkWin()) {
+                alert(`${currentPlayer} wins!`);
+                resetBoard();
+                return;
+            }
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+
+        function checkWin() {
+            const winningCombos = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8],
+                [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                [0, 4, 8], [2, 4, 6]
+            ];
+            return winningCombos.some(combo => {
+                const [a, b, c] = combo;
+                return cells[a].textContent &&
+                       cells[a].textContent === cells[b].textContent &&
+                       cells[a].textContent === cells[c].textContent;
+            });
+        }
+
+        function resetBoard() {
+            cells.forEach(cell => {
+                cell.textContent = '';
+                cell.classList.remove('taken');
+            });
+            currentPlayer = 'X';
+        }
+
+        createBoard();
+    </script>
 </body>
 </html>
