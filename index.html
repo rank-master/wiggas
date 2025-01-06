@@ -6,12 +6,14 @@
     <title>Tic Tac Toe</title>
     <style>
         body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
         }
         .board {
             display: grid;
@@ -20,73 +22,131 @@
             gap: 5px;
         }
         .cell {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             width: 100px;
             height: 100px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 2em;
-            border: 2px solid #333;
             cursor: pointer;
         }
         .cell.taken {
-            pointer-events: none;
+            cursor: not-allowed;
+        }
+        .turn-box {
+            margin-top: 20px;
+            padding: 15px;
+            width: 320px;
+            border: 2px solid #333;
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
+
+    <h1>Tic Tac Toe</h1>
     <div class="board" id="board"></div>
+    <div class="turn-box" id="turnBox">Player X's Turn - Time Left: 60s</div>
+
     <script>
         const board = document.getElementById('board');
+        const turnBox = document.getElementById('turnBox');
         let currentPlayer = 'X';
-        const cells = [];
+        let cells = ['', '', '', '', '', '', '', '', ''];
+        let timer;
+        let timeLeft = 60;
 
+        // Create board cells
         function createBoard() {
-            for (let i = 0; i < 9; i++) {
-                const cell = document.createElement('div');
-                cell.classList.add('cell');
-                cell.dataset.index = i;
-                cell.addEventListener('click', handleClick);
-                board.appendChild(cell);
-                cells.push(cell);
-            }
+            board.innerHTML = '';
+            cells.forEach((cell, index) => {
+                const cellElement = document.createElement('div');
+                cellElement.classList.add('cell');
+                cellElement.dataset.index = index;
+                cellElement.textContent = cell;
+                cellElement.addEventListener('click', handleCellClick);
+                board.appendChild(cellElement);
+            });
         }
 
-        function handleClick(event) {
-            const cell = event.target;
-            cell.textContent = currentPlayer;
-            cell.classList.add('taken');
+        // Handle cell click
+        function handleCellClick(e) {
+            const index = e.target.dataset.index;
+            if (cells[index] !== '') return;
+
+            cells[index] = currentPlayer;
+            e.target.textContent = currentPlayer;
+            e.target.classList.add('taken');
+
             if (checkWin()) {
-                alert(`${currentPlayer} wins!`);
-                resetBoard();
+                alert(`Player ${currentPlayer} Wins!`);
+                resetGame();
                 return;
             }
+
+            if (cells.every(cell => cell !== '')) {
+                alert('Draw!');
+                resetGame();
+                return;
+            }
+
+            switchPlayer();
+            resetTimer();
+        }
+
+        // Switch player turn
+        function switchPlayer() {
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            turnBox.textContent = `Player ${currentPlayer}'s Turn - Time Left: ${timeLeft}s`;
         }
 
+        // Check for winning combinations
         function checkWin() {
-            const winningCombos = [
-                [0, 1, 2], [3, 4, 5], [6, 7, 8],
-                [0, 3, 6], [1, 4, 7], [2, 5, 8],
-                [0, 4, 8], [2, 4, 6]
+            const winPatterns = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                [0, 4, 8], [2, 4, 6]              // Diagonals
             ];
-            return winningCombos.some(combo => {
-                const [a, b, c] = combo;
-                return cells[a].textContent &&
-                       cells[a].textContent === cells[b].textContent &&
-                       cells[a].textContent === cells[c].textContent;
+            return winPatterns.some(pattern => {
+                const [a, b, c] = pattern;
+                return cells[a] && cells[a] === cells[b] && cells[a] === cells[c];
             });
         }
 
-        function resetBoard() {
-            cells.forEach(cell => {
-                cell.textContent = '';
-                cell.classList.remove('taken');
-            });
+        // Reset the game
+        function resetGame() {
+            cells = ['', '', '', '', '', '', '', '', ''];
             currentPlayer = 'X';
+            timeLeft = 60;
+            createBoard();
+            resetTimer();
         }
 
+        // Start the countdown timer
+        function startTimer() {
+            clearInterval(timer);
+            timer = setInterval(() => {
+                timeLeft--;
+                turnBox.textContent = `Player ${currentPlayer}'s Turn - Time Left: ${timeLeft}s`;
+                if (timeLeft <= 0) {
+                    switchPlayer();
+                    resetTimer();
+                }
+            }, 1000);
+        }
+
+        // Reset timer when player makes a move
+        function resetTimer() {
+            timeLeft = 60;
+            turnBox.textContent = `Player ${currentPlayer}'s Turn - Time Left: ${timeLeft}s`;
+            startTimer();
+        }
+
+        // Initialize the game
         createBoard();
+        startTimer();
     </script>
+
 </body>
 </html>
