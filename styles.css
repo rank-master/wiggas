@@ -1,43 +1,19 @@
+/* styles.css */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #202125;
-  color: white; /* text color is white */
-}
-
-.section {
-  transition: opacity 0.3s ease-in-out;
-}
-
-.section.active {
-  opacity: 1;
-}
-
-.section:not(.active) {
-  opacity: 0;
-}
-
-nav {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+  }
+  
+  nav {
     background-color: black; /* top banner*/
     color: white;
     padding: 15px;
     text-align: centre;
     font-size: 24px;
-}
+  }
 
-nav ul {
-    font-size: 16px;
-    background-color: black; /*change the color*/
-    list-style-type: none;
-    margin: 0;
-    padding: 4px;
-    display: flex;
-    font-weight: 600;
-    border-bottom: 2px solid transparent;
-}
-
-.logo {
+  .logo {
     margin-bottom: 10px;
     font-size: 35px;
     font-family: "Gochi Hand", serif;
@@ -45,148 +21,40 @@ nav ul {
     font-style: normal;
     font-weight: 700;
     color: white;
-}
+  }
 
-nav ul li {
-    flex: 1;
-    color: white;
-    text-align: center;
-}
-
-/* This targets the links in the navigation bar */
-nav ul li a {
-  color: white; /* Set the default color of the links (for example, pinkish) */
-  text-decoration: none; /* Remove underline from links */
-}
-
-/* This is for when the user hovers over the links */
-nav ul li a:hover {
-  color: lightsteelblue; /* Change the color to white on hover */
-}
-
-
-.section {
-  display: none;
-  padding: 20px;
-}
-
-.section.active {
-  display: block;
-}
-
-.post {
-  display: flex; /* Flexbox for side-by-side layout */
-  align-items: center; /* Align image and heading vertically centered */
-  margin-bottom: 20px;
-  cursor: pointer;
-  gap: 10px; /* Space between the image and the heading */
-  text-decoration: none;
-}
-
-.post:hover {
-  color: blue; /* Change the color to white on hover */
-}
-
-.post p {
-    font-size: 14px; /* Smaller text size for the description */
-    color: #666666; /* Lighter grey color for the text */
-    line-height: 1.6; /* Line height adjustment for better readability */
-    margin: 5px 0; /* Small margin above and below the text */
-}
-
-.post span {
-    font-size: 10px; /* Smaller text size for the description */
-    color: #666666; /* Lighter grey color for the text */
-    line-height: 1.6; /* Line height adjustment for better readability */
-    margin: px 0; /* Small margin above and below the text */
-}
-
-
-.post img {
-  width: 80px; /* Adjust size of the image */
-  height: 80px; /* Keep it square */
-  object-fit: cover; /* Ensure the image doesn't distort */
-  border-radius: 5px; /* Optional: Rounded corners */
-}
-
-
-.post h2 {
-  margin: 0; /* Remove default margin */
-  font-size: 16px; /* Adjust heading size */
-  color: white;
-}
-
-
-/* Styling for Ludo Section */
-#ludo-section {
-  margin: 20px auto;
-  max-width: 800px;
-  text-align: center;
-  font-family: Arial, sans-serif;
-}
-
-#player-setup {
-  margin-bottom: 20px;
-}
-
-#player-setup input, #player-setup button {
-  margin: 5px;
-  padding: 10px;
-  font-size: 16px;
-}
-
-#player-setup input {
-  width: 200px;
-}
-
-#ludo-game-area {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-#ludo-board {
-  flex: 2;
-  min-height: 400px;
-  border: 2px solid #333;
-  background-color: #f9f9f9;
-  margin-right: 20px;
-}
-
-#chat-area {
-  flex: 1;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #fff;
-}
-
-#chat-messages {
-  height: 300px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  padding: 5px;
-  margin-bottom: 10px;
-  background-color: #f7f7f7;
-}
-
-#chat-input {
-  width: calc(100% - 80px);
-  margin-right: 5px;
-}
-
-#leaderboard {
-  margin-top: 20px;
-}
-
-#leaderboard-list {
-  padding: 0;
-  list-style-type: decimal;
-}
-
-#leaderboard-list li {
-  text-align: left;
-  padding: 5px 0;
-  font-size: 18px;
-}
-
-
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+  
+  .cell {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .cell.taken {
+    pointer-events: none;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
