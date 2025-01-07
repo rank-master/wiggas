@@ -82,10 +82,9 @@
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
-    <!-- Change socket.io URL here -->
-    <script src="https://wiggas-backend.onrender.com/socket.io/socket.io.js"></script> <!-- Update this to your Render backend URL -->
+    <script src="https://wiggas-backend.onrender.com/socket.io/socket.io.js"></script>
     <script>
-        const socket = io("https://wiggas-backend.onrender.com"); // This connects to your backend deployed on Render
+        const socket = io("https://wiggas-backend.onrender.com"); // Connects to the backend deployed on Render
 
         const board = document.getElementById('board');
         const turnBox = document.getElementById('turnBox');
