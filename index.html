@@ -154,8 +154,10 @@
 
         function sendMessage() {
             const msg = chatInput.value;
-            socket.emit('chat-message', msg);
-            chatInput.value = '';
+            if (msg.trim()) {
+                socket.emit('chat-message', msg);
+                chatInput.value = '';
+            }
         }
 
         function createBoard() {
