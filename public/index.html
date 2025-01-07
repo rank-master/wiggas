@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <title>Tic Tac Toe - Multiplayer</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -15,11 +15,18 @@
             height: 100vh;
             margin: 0;
         }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
         .board {
             display: grid;
             grid-template-columns: repeat(3, 100px);
             grid-template-rows: repeat(3, 100px);
             gap: 5px;
+            margin-top: 20px;
         }
         .cell {
             width: 100px;
@@ -34,116 +41,146 @@
         .cell.taken {
             cursor: not-allowed;
         }
-        .turn-box {
+        .turn-box, .chat-box {
             margin-top: 20px;
-            padding: 15px;
             width: 320px;
             border: 2px solid #333;
             font-size: 1.2em;
+            padding: 15px;
+        }
+        .room-box {
+            border: 2px solid #444;
+            padding: 20px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
-    <div class="board" id="board"></div>
-    <div class="turn-box" id="turnBox">Player X's Turn - Time Left: 60s</div>
+    <h1>Tic Tac Toe - Multiplayer</h1>
+    <div class="container" id="roomSelection">
+        <div class="room-box">
+            <h2>Select an Option</h2>
+            <button onclick="showCreateRoom()">Create Room</button>
+            <button onclick="showJoinRoom()">Join Room</button>
+        </div>
+        <div id="createRoomBox" style="display:none;">
+            <h3>Create Room</h3>
+            <input type="text" id="roomName" placeholder="Enter room name" />
+            <button onclick="createRoom()">Create</button>
+        </div>
+        <div id="joinRoomBox" style="display:none;">
+            <h3>Join a Room</h3>
+            <div id="roomList"></div>
+        </div>
+    </div>
+    <div class="container" id="gameBoard" style="display:none;">
+        <div class="board" id="board"></div>
+        <div class="turn-box" id="turnBox">Waiting for opponent...</div>
+        <div class="chat-box" id="chatBox">
+            <div id="messages"></div>
+            <input type="text" id="chatInput" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
+        const socket = io();
         const board = document.getElementById('board');
         const turnBox = document.getElementById('turnBox');
-        let currentPlayer = 'X';
-        let cells = ['', '', '', '', '', '', '', '', ''];
-        let timer;
-        let timeLeft = 60;
+        const roomList = document.getElementById('roomList');
+        const chatInput = document.getElementById('chatInput');
+        const messages = document.getElementById('messages');
+        let playerSymbol, isPlayerTurn = false;
 
-        // Create board cells
+        function showCreateRoom() {
+            document.getElementById('createRoomBox').style.display = 'block';
+            document.getElementById('joinRoomBox').style.display = 'none';
+        }
+
+        function showJoinRoom() {
+            document.getElementById('joinRoomBox').style.display = 'block';
+            document.getElementById('createRoomBox').style.display = 'none';
+            socket.emit('request-room-list');
+        }
+
+        function createRoom() {
+            const roomName = document.getElementById('roomName').value;
+            if (roomName) {
+                socket.emit('create-room', roomName);
+            }
+        }
+
+        socket.on('room-list', (rooms) => {
+            roomList.innerHTML = '';
+            rooms.forEach(room => {
+                const div = document.createElement('div');
+                div.textContent = room;
+                div.onclick = () => socket.emit('join-room', room);
+                roomList.appendChild(div);
+            });
+        });
+
+        socket.on('init', (data) => {
+            playerSymbol = data.symbol;
+            isPlayerTurn = data.startingTurn;
+            document.getElementById('roomSelection').style.display = 'none';
+            document.getElementById('gameBoard').style.display = 'block';
+            turnBox.textContent = isPlayerTurn ? "Your turn!" : "Opponent's turn...";
+            createBoard();
+        });
+
+        socket.on('update-game', (data) => {
+            updateBoard(data.board);
+            isPlayerTurn = (data.turn === playerSymbol);
+            turnBox.textContent = isPlayerTurn ? "Your turn!" : "Opponent's turn...";
+        });
+
+        socket.on('game-over', (data) => {
+            if (data.winner === 'Draw') {
+                alert("It's a draw!");
+            } else {
+                alert(`Player ${data.winner} wins!`);
+            }
+            location.reload(); // Reload to reset the game
+        });
+
+        socket.on('message', (msg) => {
+            const div = document.createElement('div');
+            div.textContent = msg;
+            messages.appendChild(div);
+        });
+
+        function sendMessage() {
+            const msg = chatInput.value;
+            socket.emit('chat-message', msg);
+            chatInput.value = '';
+        }
+
         function createBoard() {
             board.innerHTML = '';
-            cells.forEach((cell, index) => {
-                const cellElement = document.createElement('div');
-                cellElement.classList.add('cell');
-                cellElement.dataset.index = index;
-                cellElement.textContent = cell;
-                cellElement.addEventListener('click', handleCellClick);
-                board.appendChild(cellElement);
-            });
-        }
-
-        // Handle cell click
-        function handleCellClick(e) {
-            const index = e.target.dataset.index;
-            if (cells[index] !== '') return;
-
-            cells[index] = currentPlayer;
-            e.target.textContent = currentPlayer;
-            e.target.classList.add('taken');
-
-            if (checkWin()) {
-                alert(`Player ${currentPlayer} Wins!`);
-                resetGame();
-                return;
+            for (let i = 0; i < 9; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.addEventListener('click', () => makeMove(i));
+                board.appendChild(cell);
             }
-
-            if (cells.every(cell => cell !== '')) {
-                alert('Draw!');
-                resetGame();
-                return;
-            }
-
-            switchPlayer();
-            resetTimer();
         }
 
-        // Switch player turn
-        function switchPlayer() {
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-            turnBox.textContent = `Player ${currentPlayer}'s Turn - Time Left: ${timeLeft}s`;
-        }
-
-        // Check for winning combinations
-        function checkWin() {
-            const winPatterns = [
-                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-                [0, 4, 8], [2, 4, 6]              // Diagonals
-            ];
-            return winPatterns.some(pattern => {
-                const [a, b, c] = pattern;
-                return cells[a] && cells[a] === cells[b] && cells[a] === cells[c];
-            });
-        }
-
-        // Reset the game
-        function resetGame() {
-            cells = ['', '', '', '', '', '', '', '', ''];
-            currentPlayer = 'X';
-            timeLeft = 60;
-            createBoard();
-            resetTimer();
-        }
-
-        // Start the countdown timer
-        function startTimer() {
-            clearInterval(timer);
-            timer = setInterval(() => {
-                timeLeft--;
-                turnBox.textContent = `Player ${currentPlayer}'s Turn - Time Left: ${timeLeft}s`;
-                if (timeLeft <= 0) {
-                    switchPlayer();
-                    resetTimer();
+        function updateBoard(gameBoard) {
+            const cells = document.querySelectorAll('.cell');
+            gameBoard.forEach((symbol, index) => {
+                if (symbol && !cells[index].classList.contains('taken')) {
+                    cells[index].textContent = symbol;
+                    cells[index].classList.add('taken');
                 }
-            }, 1000);
+            });
         }
 
-        // Reset timer when player makes a move
-        function resetTimer() {
-            timeLeft = 60;
-            turnBox.textContent = `Player ${currentPlayer}'s Turn - Time Left: ${timeLeft}s`;
-            startTimer();
+        function makeMove(index) {
+            if (isPlayerTurn) {
+                socket.emit('make-move', index);
+            }
         }
-
-        // Initialize the game
-        createBoard();
-        startTimer();
     </script>
 </body>
 </html>
