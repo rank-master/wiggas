@@ -53,6 +53,20 @@
             padding: 20px;
             margin-top: 20px;
         }
+        .room-item {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .room-item:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -74,6 +88,7 @@
         </div>
     </div>
     <div class="container" id="gameBoard" style="display:none;">
+        <h2 id="waitingMessage" style="display:none;">Waiting for opponent...</h2>
         <div class="board" id="board"></div>
         <div class="turn-box" id="turnBox">Waiting for opponent...</div>
         <div class="chat-box" id="chatBox">
@@ -82,16 +97,18 @@
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
-    <script src="https://wiggas-backend.onrender.com/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
-        const socket = io("https://wiggas-backend.onrender.com"); // Connects to the backend deployed on Render
-
+        const socket = io();
         const board = document.getElementById('board');
         const turnBox = document.getElementById('turnBox');
         const roomList = document.getElementById('roomList');
         const chatInput = document.getElementById('chatInput');
         const messages = document.getElementById('messages');
+        const waitingMessage = document.getElementById('waitingMessage');
         let playerSymbol, isPlayerTurn = false;
+        let countdownTimer;
+        let timeLeft = 60;
 
         function showCreateRoom() {
             document.getElementById('createRoomBox').style.display = 'block';
@@ -112,37 +129,53 @@
         }
 
         socket.on('room-list', (rooms) => {
-            roomList.innerHTML = '';
+            roomList.innerHTML = '';  // Clear the room list
             rooms.forEach(room => {
                 const div = document.createElement('div');
                 div.textContent = room;
-                div.onclick = () => socket.emit('join-room', room);
+                div.classList.add('room-item');
+                div.onclick = () => {
+                    socket.emit('join-room', room);  // Emit 'join-room' to server
+                    console.log(`Attempting to join room: ${room}`);
+                     // Immediately switch to game board view
+                    document.getElementById('roomSelection').style.display = 'none';
+                    document.getElementById('gameBoard').style.display = 'block';
+                    waitingMessage.style.display = 'block';
+                };
                 roomList.appendChild(div);
             });
+        });
+
+        socket.on('room-waiting', () => {
+            document.getElementById('roomSelection').style.display = 'none';
+            document.getElementById('gameBoard').style.display = 'block';
+            waitingMessage.style.display = 'block';
         });
 
         socket.on('init', (data) => {
             playerSymbol = data.symbol;
             isPlayerTurn = data.startingTurn;
-            document.getElementById('roomSelection').style.display = 'none';
-            document.getElementById('gameBoard').style.display = 'block';
+            waitingMessage.style.display = 'none';
             turnBox.textContent = isPlayerTurn ? "Your turn!" : "Opponent's turn...";
             createBoard();
+        });
+
+        socket.on('start-game', (data) => {
+            updateBoard(data.board);
+            turnBox.textContent = data.turn === playerSymbol ? "Your turn!" : "Opponent's turn...";
+            resetCountdown();
         });
 
         socket.on('update-game', (data) => {
             updateBoard(data.board);
             isPlayerTurn = (data.turn === playerSymbol);
             turnBox.textContent = isPlayerTurn ? "Your turn!" : "Opponent's turn...";
+            resetCountdown();
         });
 
         socket.on('game-over', (data) => {
-            if (data.winner === 'Draw') {
-                alert("It's a draw!");
-            } else {
-                alert(`Player ${data.winner} wins!`);
-            }
-            location.reload(); // Reload to reset the game
+            alert(data.winner === 'Draw' ? "It's a draw!" : `Player ${data.winner} wins!`);
+            location.reload();
         });
 
         socket.on('message', (msg) => {
@@ -153,10 +186,8 @@
 
         function sendMessage() {
             const msg = chatInput.value;
-            if (msg.trim()) {
-                socket.emit('chat-message', msg);
-                chatInput.value = '';
-            }
+            socket.emit('chat-message', msg);
+            chatInput.value = '';
         }
 
         function createBoard() {
@@ -183,6 +214,25 @@
             if (isPlayerTurn) {
                 socket.emit('make-move', index);
             }
+        }
+
+        function startCountdown() {
+            countdownTimer = setInterval(() => {
+                timeLeft--;
+                turnBox.textContent = `Time Left: ${timeLeft}s`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownTimer);
+                    alert("Time's up! You are eliminated.");
+                    socket.emit('make-move', -1);  // Trigger game over for the player
+                }
+            }, 1000);
+        }
+
+        function resetCountdown() {
+            clearInterval(countdownTimer);
+            timeLeft = 60;
+            startCountdown();
         }
     </script>
 </body>
