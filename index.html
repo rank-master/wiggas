@@ -3,237 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe - Multiplayer</title>
+    <title>Three.js Example</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
-        .board {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
-            gap: 5px;
-            margin-top: 20px;
-        }
-        .cell {
-            width: 100px;
-            height: 100px;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            cursor: pointer;
-        }
-        .cell.taken {
-            cursor: not-allowed;
-        }
-        .turn-box, .chat-box {
-            margin-top: 20px;
-            width: 320px;
-            border: 2px solid #333;
-            font-size: 1.2em;
-            padding: 15px;
-        }
-        .room-box {
-            border: 2px solid #444;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .room-item {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            margin: 5px;
-            cursor: pointer;
-            text-align: center;
-            border-radius: 5px;
-            width: 100%;
-        }
-
-        .room-item:hover {
-            background-color: #45a049;
-        }
+        body { margin: 0; }
+        canvas { display: block; }
     </style>
 </head>
 <body>
-    <h1>Tic Tac Toe - Multiplayer</h1>
-    <div class="container" id="roomSelection">
-        <div class="room-box">
-            <h2>Select an Option</h2>
-            <button onclick="showCreateRoom()">Create Room</button>
-            <button onclick="showJoinRoom()">Join Room</button>
-        </div>
-        <div id="createRoomBox" style="display:none;">
-            <h3>Create Room</h3>
-            <input type="text" id="roomName" placeholder="Enter room name" />
-            <button onclick="createRoom()">Create</button>
-        </div>
-        <div id="joinRoomBox" style="display:none;">
-            <h3>Join a Room</h3>
-            <div id="roomList"></div>
-        </div>
-    </div>
-    <div class="container" id="gameBoard" style="display:none;">
-        <h2 id="waitingMessage" style="display:none;">Waiting for opponent...</h2>
-        <div class="board" id="board"></div>
-        <div class="turn-box" id="turnBox">Waiting for opponent...</div>
-        <div class="chat-box" id="chatBox">
-            <div id="messages"></div>
-            <input type="text" id="chatInput" placeholder="Type a message..." />
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
-    <script src="https://wiggas-backend.onrender.com/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        const socket = io('https://wiggas-backend.onrender.com', { transports: ['websocket', 'polling'] });
-        const board = document.getElementById('board');
-        const turnBox = document.getElementById('turnBox');
-        const roomList = document.getElementById('roomList');
-        const chatInput = document.getElementById('chatInput');
-        const messages = document.getElementById('messages');
-        const waitingMessage = document.getElementById('waitingMessage');
-        let playerSymbol, isPlayerTurn = false;
-        let countdownTimer;
-        let timeLeft = 60;
+        // Scene setup
+        const scene = new THREE.Scene();
 
-        function showCreateRoom() {
-            document.getElementById('createRoomBox').style.display = 'block';
-            document.getElementById('joinRoomBox').style.display = 'none';
+        // Camera setup
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 5;
+
+        // Renderer setup
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Cube setup
+        const geometry = new THREE.BoxGeometry(1, 1, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Rotate the cube
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+
+            // Render the scene
+            renderer.render(scene, camera);
         }
 
-        function showJoinRoom() {
-            document.getElementById('joinRoomBox').style.display = 'block';
-            document.getElementById('createRoomBox').style.display = 'none';
-            socket.emit('request-room-list');
-        }
+        animate();
 
-        function createRoom() {
-            const roomName = document.getElementById('roomName').value;
-            if (roomName) {
-                socket.emit('create-room', roomName);
-            }
-        }
-
-        socket.on('room-list', (rooms) => {
-            roomList.innerHTML = '';  // Clear the room list
-            rooms.forEach(room => {
-                const div = document.createElement('div');
-                div.textContent = room;
-                div.classList.add('room-item');
-                div.onclick = () => {
-                    socket.emit('join-room', room);  // Emit 'join-room' to server
-                    console.log(`Attempting to join room: ${room}`);
-                     // Immediately switch to game board view
-                    document.getElementById('roomSelection').style.display = 'none';
-                    document.getElementById('gameBoard').style.display = 'block';
-                    waitingMessage.style.display = 'block';
-                };
-                roomList.appendChild(div);
-            });
+        // Adjust camera aspect ratio when window is resized
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
         });
-
-        socket.on('room-waiting', () => {
-            document.getElementById('roomSelection').style.display = 'none';
-            document.getElementById('gameBoard').style.display = 'block';
-            waitingMessage.style.display = 'block';
-        });
-
-        socket.on('init', (data) => {
-            playerSymbol = data.symbol;
-            isPlayerTurn = data.startingTurn;
-            waitingMessage.style.display = 'none';
-            turnBox.textContent = isPlayerTurn ? "Your turn!" : "Opponent's turn...";
-            createBoard();
-        });
-
-        socket.on('start-game', (data) => {
-            updateBoard(data.board);
-            turnBox.textContent = data.turn === playerSymbol ? "Your turn!" : "Opponent's turn...";
-            resetCountdown();
-        });
-
-        socket.on('update-game', (data) => {
-            updateBoard(data.board);
-            isPlayerTurn = (data.turn === playerSymbol);
-            turnBox.textContent = isPlayerTurn ? "Your turn!" : "Opponent's turn...";
-            resetCountdown();
-        });
-
-        socket.on('game-over', (data) => {
-            alert(data.winner === 'Draw' ? "It's a draw!" : `Player ${data.winner} wins!`);
-            location.reload();
-        });
-
-        socket.on('message', (msg) => {
-            const div = document.createElement('div');
-            div.textContent = msg;
-            messages.appendChild(div);
-        });
-
-        function sendMessage() {
-            const msg = chatInput.value;
-            socket.emit('chat-message', msg);
-            chatInput.value = '';
-        }
-
-        function createBoard() {
-            board.innerHTML = '';
-            for (let i = 0; i < 9; i++) {
-                const cell = document.createElement('div');
-                cell.classList.add('cell');
-                cell.addEventListener('click', () => makeMove(i));
-                board.appendChild(cell);
-            }
-        }
-
-        function updateBoard(gameBoard) {
-            const cells = document.querySelectorAll('.cell');
-            gameBoard.forEach((symbol, index) => {
-                if (symbol && !cells[index].classList.contains('taken')) {
-                    cells[index].textContent = symbol;
-                    cells[index].classList.add('taken');
-                }
-            });
-        }
-
-        function makeMove(index) {
-            if (isPlayerTurn) {
-                socket.emit('make-move', index);
-            }
-        }
-
-        function startCountdown() {
-            countdownTimer = setInterval(() => {
-                timeLeft--;
-                turnBox.textContent = `Time Left: ${timeLeft}s`;
-
-                if (timeLeft <= 0) {
-                    clearInterval(countdownTimer);
-                    alert("Time's up! You are eliminated.");
-                    socket.emit('make-move', -1);  // Trigger game over for the player
-                }
-            }, 1000);
-        }
-
-        function resetCountdown() {
-            clearInterval(countdownTimer);
-            timeLeft = 60;
-            startCountdown();
-        }
     </script>
 </body>
 </html>
