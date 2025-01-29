@@ -102,11 +102,11 @@ document.getElementById('jump').addEventListener('click', () => {
   if (!isJumping) isJumping = true, velocity = jumpForce;
 });
 
-document.getElementById('moveAhead').addEventListener('mousedown', () => movingForward = true);
-document.getElementById('moveAhead').addEventListener('mouseup', () => movingForward = false);
+document.getElementById('moveAhead').addEventListener('touchStart', () => movingForward = true);
+document.getElementById('moveAhead').addEventListener('touchEnd', () => movingForward = false);
 
-document.getElementById('moveBack').addEventListener('mousedown', () => movingBackward = true);
-document.getElementById('moveBack').addEventListener('mouseup', () => movingBackward = false);
+document.getElementById('moveBack').addEventListener('touchStart', () => movingBackward = true);
+document.getElementById('moveBack').addEventListener('touchEnd', () => movingBackward = false);
 
 // Animate function
 function animate() {
