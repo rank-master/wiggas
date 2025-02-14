@@ -28,27 +28,86 @@ class Game {
         // Event listeners
         document.addEventListener('keydown', this.handleKeyDown.bind(this));
         
+        // Touch controls
+        this.setupTouchControls();
+        
         // Start game loop
         this.gameLoop();
     }
     
+    setupTouchControls() {
+        const leftBtn = document.getElementById('leftBtn');
+        const rightBtn = document.getElementById('rightBtn');
+        const jumpBtn = document.getElementById('jumpBtn');
+
+        // Touch events for buttons
+        leftBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            this.movePlayer('left');
+        });
+
+        rightBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            this.movePlayer('right');
+        });
+
+        jumpBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            this.jump();
+        });
+
+        // Swipe controls
+        let touchStartX = 0;
+        this.canvas.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        this.canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Prevent scrolling while playing
+        });
+
+        this.canvas.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const swipeDistance = touchEndX - touchStartX;
+
+            if (Math.abs(swipeDistance) > 30) { // Minimum swipe distance
+                if (swipeDistance > 0) {
+                    this.movePlayer('right');
+                } else {
+                    this.movePlayer('left');
+                }
+            } else {
+                // Tap to jump
+                this.jump();
+            }
+        });
+    }
+
+    movePlayer(direction) {
+        if (direction === 'left' && this.player.x > 0) {
+            this.player.x -= this.player.speed * 10;
+        } else if (direction === 'right' && this.player.x < this.canvas.width - this.player.width) {
+            this.player.x += this.player.speed * 10;
+        }
+    }
+
+    jump() {
+        if (!this.player.jumping) {
+            this.player.jumping = true;
+            this.player.velocityY = -this.player.jumpForce;
+        }
+    }
+
     handleKeyDown(event) {
         switch(event.key) {
             case 'ArrowLeft':
-                if (this.player.x > 0) {
-                    this.player.x -= this.player.speed * 10;
-                }
+                this.movePlayer('left');
                 break;
             case 'ArrowRight':
-                if (this.player.x < this.canvas.width - this.player.width) {
-                    this.player.x += this.player.speed * 10;
-                }
+                this.movePlayer('right');
                 break;
             case ' ':
-                if (!this.player.jumping) {
-                    this.player.jumping = true;
-                    this.player.velocityY = -this.player.jumpForce;
-                }
+                this.jump();
                 break;
         }
     }
