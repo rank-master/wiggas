@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Subway Surfer Clone</title>
     <style>
         body {
@@ -25,11 +25,38 @@
             font-size: 24px;
             font-family: Arial, sans-serif;
         }
+        .control-button {
+            position: fixed;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        #leftBtn {
+            left: 20px;
+        }
+        #rightBtn {
+            left: 100px;
+        }
+        #jumpBtn {
+            right: 20px;
+        }
     </style>
 </head>
 <body>
     <div id="score">Score: 0</div>
     <canvas id="gameCanvas"></canvas>
+    <div id="leftBtn" class="control-button">←</div>
+    <div id="rightBtn" class="control-button">→</div>
+    <div id="jumpBtn" class="control-button">↑</div>
     <script src="game.js"></script>
 </body>
 </html>
