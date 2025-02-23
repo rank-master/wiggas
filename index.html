@@ -1,65 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Subway Surfer Clone</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #333;
-        }
-        canvas {
-            background-color: #fff;
-        }
-        #score {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 24px;
-            font-family: Arial, sans-serif;
-        }
-        .control-button {
-            position: fixed;
-            bottom: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            color: white;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-        #leftBtn {
-            color: red;
-            left: 20px;
-        }
-        #rightBtn {
-            color: red;
-            left: 100px;
-        }
-        #jumpBtn {
-            color: red;
-            right: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiggas Community</title>
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">  
 </head>
 <body>
-    <div id="score">Score: 0</div>
-    <canvas id="gameCanvas"></canvas>
-    <div id="leftBtn" class="control-button">←</div>
-    <div id="rightBtn" class="control-button">→</div>
-    <div id="jumpBtn" class="control-button">↑</div>
-    <script src="game.js"></script>
+    <nav>
+        <div class="logo">viralhit.online</div>
+        <ul>
+            <li><a href="#" onclick="showSection('groupChats')">Group Chats</a></li>
+            <li><a href="#" onclick="showSection('ludo-section')">Ludo</a></li>
+        </ul>
+    </nav>
+      <main>
+        <section id="groupChats" class="section">
+          <p>Message on @rulerofheavens to add your Group Chat link in this page.</p>
+          <br>
+          <h2>Worst Dynasty:</h2>
+          <a href="https://ig.me/j/AbYmYa-4QNxVhaWh/">https://ig.me/j/AbYmYa-4QNxVhaWh/</a>
+          <br>
+          <h2>Unbound GC:</h2>
+          <a href="https://ig.me/j/AbZ-WRE-GRgjpZem/">https://ig.me/j/AbZ-WRE-GRgjpZem/</a>
+          <h2>INBOX GC:</h2>
+          <a href="https://ig.me/j/AbbuWLjSqCdwy9zv/">https://ig.me/j/AbbuWLjSqCdwy9zv/</a>  
+        </section>
+      </main>
 </body>
 </html>
