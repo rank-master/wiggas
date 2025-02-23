@@ -1,27 +1,103 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
 }
-#gameCanvas {
-  display: block;
+
+/* Navigation styles */
+nav {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-.controls {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
+
+.logo {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+    color: #fff;
 }
-.controls button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
 }
-.controls button:active {
-  background-color: #0056b3;
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Main content styles */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Group Chats section styles */
+#groupChats h2 {
+    color: #333;
+    margin: 1.5rem 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+#groupChats p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+#groupChats a {
+    color: #0066cc;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+#groupChats a:hover {
+    color: #003366;
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .logo {
+        margin-bottom: 0.5rem;
+    }
 }
