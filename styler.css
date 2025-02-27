@@ -130,6 +130,19 @@ header hr {
   color: #007bff;
 }
 
+.faq-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.faq-item li {
+  position: relative;
+  margin: 10px 0;
+  padding-left: 25px;
+  color: #ccc;
+}
+
 .enroll-btn {
   background: #007bff;
   color: white;
@@ -161,14 +174,6 @@ header hr {
   margin: 20px 0;
 }
 
-.faq-item h3 {
-  color: #007bff;
-  margin-bottom: 10px;
-}
-
-.faq-item p {
-  color: #ccc;
-}
 
 /* Footer */
 footer {
