@@ -1,215 +1,140 @@
-/* General Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #000000;
-  color: white; /* text color is white */
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background: #000000;
+color: white; /* text color is white */
 }
-
 hr {
-  border: none;
-  height: 1px;
-  /* Set the hr color */
-  color: #333; /* old IE */
-  background-color: #333; /* Modern Browsers */
+border: none;
+height: 1px;
+/ Set the hr color /
+color: #333; / old IE /
+background-color: #333; /* Modern Browsers */
 }
-
 .section {
-  transition: opacity 0.3s ease-in-out;
+transition: opacity 0.3s ease-in-out;
 }
-
 .section.active {
-  opacity: 1;
-  display: block;
+opacity: 1;
 }
-
 .section:not(.active) {
-  opacity: 0;
-  display: none;
+opacity: 0;
 }
-
 nav {
-  background-color: black; /* top banner */
-  color: white;
-  padding: 15px;
-  text-align: center;
-  font-size: 24px;
+background-color: black; /* top banner*/
+color: white;
+padding: 15px;
+text-align: centre;
+font-size: 24px;
 }
-
 nav ul {
-  font-size: 16px;
-  background-color: black; /* change the color */
-  list-style-type: none;
-  margin: 0;
-  padding: 4px;
-  display: flex;
-  justify-content: center; /* Center align items */
-  font-weight: 600;
-  border-bottom: 2px solid transparent;
+font-size: 16px;
+background-color: black; /*change the color */
+list-style-type: none;
+margin: 0;
+padding: 4px;
+display: flex;
+font-weight: 600;
+border-bottom: 2px solid transparent;
 }
-
 .logo {
-  margin-bottom: 10px;
-  font-size: 35px;
-  font-family: "Gochi Hand", serif;
-  font-weight: 700;
-  color: white;
+margin-bottom: 10px;
+font-size: 35px;
+font-family: "Gochi Hand", serif;
+font-weight: 400;
+font-style: normal;
+font-weight: 700;
+color: white;
 }
-
 nav ul li {
-  flex: 1;
-  color: white;
-  text-align: center;
+flex: 1;
+color: white;
+text-align: center;
 }
-
 /* This targets the links in the navigation bar */
 nav ul li a {
-  color: white; /* Set the default color of the links */
-  text-decoration: none; /* Remove underline from links */
-  display: block;
-  padding: 10px;
+color: white; /* Set the default color of the links (for example, pinkish) */
+text-decoration: none; /* Remove underline from links */
 }
-
 /* This is for when the user hovers over the links */
 nav ul li a:hover {
-  color: lightsteelblue; /* Change the color to white on hover */
-  background-color: #333; /* Slight background highlight */
-}
-
-main {
-  padding: 20px;
+color: lightsteelblue; /* Change the color to white on hover */
 }
 
 .section {
-  padding: 30px 20px; /* More padding for sections */
-  max-width: 1200px; /* Limit width for better readability */
-  margin: 0 auto; /* Center the content */
+display: none;
+padding: 30px 20px; /* More padding for sections */
+max-width: 1200px; /* Limit width for better readability */
+margin: 0 auto; /* Center the content */
 }
-
+.section.active {
+display: block;
+}
 .post {
-  display: flex;
-  align-items: flex-start; /* Align image and text at the top */
-  background-color: #2a2b30; /* Darker card background */
-  padding: 15px;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  margin-bottom: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-  text-decoration: none;
-  color: white; /* Default text color */
+display: flex;
+align-items: flex-start; /* Align image and text at the top */
+background-color: #2a2b30; /* Darker card background */
+padding: 15px;
+border-radius: 10px; /* Rounded corners */
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+margin-bottom: 20px;
+transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+text-decoration: none;
+color: white; /* Default text color */
 }
-
 .post:hover {
-  transform: translateY(-5px); /* Lift the card slightly */
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+transform: translateY(-5px); /* Lift the card slightly */
+box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
 }
-
 .post img {
-  width: 100px; /* Larger image size */
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px; /* Rounded corners */
-  margin-right: 15px; /* Space between image and text */
+width: 100px; /* Larger image size */
+height: 100px;
+object-fit: cover;
+border-radius: 8px; /* Rounded corners */
+margin-right: 15px; /* Space between image and text */
 }
-
 .post h2 {
-  margin: 0;
-  font-size: 18px;
-  color: white;
-  margin-bottom: 5px; /* Space below the title */
+margin: 0;
+font-size: 18px;
+color: white;
+margin-bottom: 5px; /* Space below the title */
 }
-
 .post p {
-  font-size: 14px;
-  color: #ccc; /* Lighter grey for description */
-  line-height: 1.5;
-  margin: 0;
+font-size: 14px;
+color: #ccc; /* Lighter grey for description */
+line-height: 1.5;
+margin: 0;
 }
-
 .post p:last-child {
-  font-weight: bold;
-  color: #41a728; /* Highlight price in green */
-  margin-top: 10px;
+font-weight: bold;
+color: #41a728; /* Highlight price in green */
+margin-top: 10px;
 }
-
 #hero {
-  background: linear-gradient(180deg, yellow, rgb(223, 255, 107)); /* Gradient background */
-  color: white;
-  text-align: center;
-  padding: 30px 20px; /* Vertical and horizontal padding */
+background: linear-gradient(180deg, yellow, rgb(223, 255, 107)); /* Gradient background */
+color: white;
+text-align: center;
+padding-top: 5px;
+padding: 30px 20px; /* Vertical and horizontal padding */
 }
-
 .hero-content h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
+font-size: 36px;
+margin-bottom: 20px;
 }
-
 .hero-content p {
-  font-size: 18px;
-  margin-bottom: 20px;
+font-size: 18px;
+margin-bottom: 20px;
 }
-
 .hero-content button {
-  background-color: white;
-  color: #c14bb1;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+background-color: white;
+color: #c14bb1 ;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
 }
-
 .hero-content button:hover {
-  background-color: #f0f0f0; /* Lighter background on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .post {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .post img {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  .hero-content h1 {
-    font-size: 28px;
-  }
-
-  .hero-content p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    font-size: 28px;
-  }
-
-  nav ul li a {
-    font-size: 14px;
-  }
-
-  .post h2 {
-    font-size: 16px;
-  }
-
-  .post p {
-    font-size: 12px;
-  }
+background-color: #f0f0f0; /* Lighter background on hover */
 }
