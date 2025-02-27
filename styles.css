@@ -67,6 +67,7 @@ display: none;
 padding: 30px 20px; /* More padding for sections */
 max-width: 1200px; /* Limit width for better readability */
 margin: 0 auto; /* Center the content */
+padding-top: 0;
 }
 .section.active {
 display: block;
@@ -112,7 +113,7 @@ color: #41a728; /* Highlight price in green */
 margin-top: 10px;
 }
 #hero {
-/*background: linear-gradient(180deg, yellow, rgb(223, 255, 107)); /* Gradient background */
+background: #000000;
 color: white;
 text-align: center;
 padding-top: 5px;
