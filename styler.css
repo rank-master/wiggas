@@ -1,3 +1,4 @@
+/* General Reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,10 +9,43 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: white; /* Text color is white for visibility on black background */
+  color: white;
   background: #000000; /* Pure black background */
   margin: 0;
   padding: 20px;
+}
+
+/* Header */
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  padding: 15px;
+}
+
+header nav .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+header hr {
+  border: none;
+  height: 1px;
+  background: #333;
+  margin-top: 10px;
 }
 
 /* Product Detail Section */
@@ -23,10 +57,10 @@ body {
 }
 
 .product-gallery {
-  border: 1px solid #333; /* Subtle border for gallery */
+  border: 1px solid #333;
   padding: 20px;
   border-radius: 8px;
-  background: #1a1a1a; /* Slightly lighter than black for contrast */
+  background: #1a1a1a;
 }
 
 .product-gallery img.main-image {
@@ -40,6 +74,7 @@ body {
 .thumbnail-strip {
   display: flex;
   gap: 10px;
+  overflow-x: auto;
 }
 
 .thumbnail {
@@ -52,56 +87,27 @@ body {
 }
 
 .thumbnail.active {
-  border-color: #007bff; /* Highlight active thumbnail */
+  border-color: #007bff;
 }
 
 .product-info {
   padding: 20px;
-  background: #1a1a1a; /* Slightly lighter than black for contrast */
+  background: #1a1a1a;
   border-radius: 8px;
 }
 
 .product-info h1 {
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 20px;
-  color: white; /* Ensure heading is visible */
 }
 
 .price {
   margin: 20px 0;
 }
 
-.current-price {
-  color: #007bff; /* Blue color for price */
-  font-size: 2em;
-  font-weight: bold;
-}
-
 .original-price {
-  color: #ccc; /* Light gray for original price */
-  margin-left: 10px;
+  color: #ccc;
   font-size: 23px;
-}
-
-.discount {
-  background: #ff4444; /* Red background for discount */
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-weight: bold;
-  margin-left: 15px;
-}
-
-.course-meta {
-  background: #2a2b30; /* Darker card background */
-  padding: 15px;
-  border-radius: 8px;
-  margin: 20px 0;
-}
-
-.course-meta p {
-  margin: 10px 0;
-  color: #ccc; /* Light gray for meta text */
 }
 
 .course-features ul {
@@ -111,21 +117,21 @@ body {
 }
 
 .course-features li {
-  padding-left: 25px;
   position: relative;
   margin: 10px 0;
-  color: #ccc; /* Light gray for feature text */
+  padding-left: 25px;
+  color: #ccc;
 }
 
 .course-features li::before {
   content: '✓';
   position: absolute;
   left: 0;
-  color: #007bff; /* Blue checkmark */
+  color: #007bff;
 }
 
 .enroll-btn {
-  background: #007bff; /* Blue button */
+  background: #007bff;
   color: white;
   border: none;
   padding: 15px 30px;
@@ -137,12 +143,12 @@ body {
 }
 
 .enroll-btn:hover {
-  background: #0056b3; /* Darker blue on hover */
+  background: #0056b3;
 }
 
 .guarantee {
   text-align: center;
-  color: #ccc; /* Light gray for guarantee text */
+  color: #ccc;
 }
 
 /* FAQ Section */
@@ -156,28 +162,51 @@ body {
 }
 
 .faq-item h3 {
-  color: #007bff; /* Blue for FAQ headings */
+  color: #007bff;
   margin-bottom: 10px;
 }
 
 .faq-item p {
-  color: #ccc; /* Light gray for FAQ answers */
+  color: #ccc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: #1a1a1a;
+  border-radius: 8px;
+}
+
+footer p {
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+}
+
+footer ul li a {
+  color: #007bff;
+  text-decoration: none;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .product-detail {
-    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    grid-template-columns: 1fr;
   }
 
-  .instructor {
-    flex-direction: column;
-    text-align: center;
+  .product-gallery img.main-image {
+    height: 300px;
   }
 
-  .instructor img {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
+  .thumbnail-strip {
+    justify-content: center;
   }
 }
