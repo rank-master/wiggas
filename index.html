@@ -3,33 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wiggas Community</title>
+  <title>Viralhit.online</title>
   <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="script.js" as="script">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <div class="logo">viralhit.online</div>
-        <ul>
-            <li><a href="#" onclick="showSection('groupChats')">Group Chats</a></li>
-            <li><a href="#" onclick="showSection('ludo-section')">Ludo</a></li>
-        </ul>
-    </nav>
-      <main>
-        <section id="groupChats" class="section">
-          <p>Message on @rulerofheavens to add your Group Chat link in this page.</p>
-          <br>
+  <nav>
+    <div class="logo">viralhit.online</div>
+    <button id="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+    <ul id="nav-links">
+      <li><a href="#" onclick="showSection('home')">Home</a></li>
+      <li><a href="#" onclick="showSection('groupChats')">Group Chats</a></li>
+      <li><a href="#" onclick="showSection('ludo-section')">About us</a></li>
+    </ul>
+  </nav>
+  <hr>
+  <main>
+    <section id="home" class="section active">
+      <section id="hero">
+        <div class="hero-content">
+          <h1>Learn and Earn with Our Courses</h1>
+          <p>Buy once, earn forever.</p>
+          <button onclick="showSection('signup')">Get Started</button>
+        </div>
+      </section>
+      <a href="pdf1.html" class="post">
+        <img src="images/2d49545410650234135dbaac3a381c5e.jpg" alt="How to earn money online? (PDF)">
+        <div>
+          <h2>How to earn money online? (PDF)</h2>
+          <p>Rs.99 only</p>
+        </div>
+      </a>
+      <a href="pdf2.html" class="post">
+        <img src="images/c15f7f168947249b08bca9603ff3e042.jpg" alt="Ways to earn money (PDF)">
+        <div>
+          <h2>Ways to earn money (PDF)</h2>
+          <p>Rs.139 only</p>
+        </div>
+      </a>
+      <a href="pdf2.html" class="post">
+        <img src="images/c15f7f168947249b08bca9603ff3e042.jpg" alt="Ways to earn money (PDF)">
+        <div>
+          <h2>Ways to earn money (PDF)</h2>
+          <p>Rs. 299 only</p>
+        </div>
+      </a>
+    </section>
+    <section id="groupChats" class="section">
+      <p>Message on <b>@rulerofheavens</b> to add your Group Chat link in this page.</p>
+      <a href="https://ig.me/j/AbYmYa-4QNxVhaWh/" class="post">
+        <div>
           <h2>Worst Dynasty:</h2>
-          <a href="https://ig.me/j/AbYmYa-4QNxVhaWh/">https://ig.me/j/AbYmYa-4QNxVhaWh/</a>
-          <br>
+          <p>https://ig.me/j/AbYmYa-4QNxVhaWh/</p>
+        </div>
+      </a>
+      <a href="https://ig.me/j/AbZ-WRE-GRgjpZem/" class="post">
+        <div>
           <h2>Unbound GC:</h2>
-          <a href="https://ig.me/j/AbZ-WRE-GRgjpZem/">https://ig.me/j/AbZ-WRE-GRgjpZem/</a>
-          <h2>INBOX GC:</h2>
-          <a href="https://ig.me/j/AbbuWLjSqCdwy9zv/">https://ig.me/j/AbbuWLjSqCdwy9zv/</a>  
-        </section>
-      </main>
+          <p>https://ig.me/j/AbZ-WRE-GRgjpZem/</p>
+        </div>
+      </a>
+      <a href="https://ig.me/j/AbbuWLjSqCdwy9zv/" class="post">
+        <div>
+          <h2>Inbox GC:</h2>
+          <p>https://ig.me/j/AbbuWLjSqCdwy9zv/</p>
+        </div>
+      </a>
+    </section>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
