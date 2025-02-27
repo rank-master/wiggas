@@ -140,3 +140,7 @@ font-size: 16px;
 .hero-content button:hover {
 background-color: #f0f0f0; /* Lighter background on hover */
 }
+
+.rulerlink {
+  color: #c14bb1;
+}
