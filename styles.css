@@ -64,7 +64,7 @@ body {
 
 /* Sections */
 .section {
-  padding: 2rem;
+  padding: 0rem;
   max-width: 1200px;
   margin: 0 auto;
   display: none;
