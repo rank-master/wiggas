@@ -29,14 +29,14 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  background: #dbfe01;
+  background: #fbfc00;
   padding: 1.5rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center; /* Straightens nav items */
   /*box-shadow: 0 4px 12px var(--shadow);*/
   z-index: 1000;
-  border-radius: 0;
+  border-radius: 0px 0px 0px 0px;
 }
 
 .logo {
