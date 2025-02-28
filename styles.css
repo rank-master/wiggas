@@ -1,6 +1,6 @@
 /* Simplified Palette without Purple */
 :root {
-  --bg-gradient: linear-gradient(#DC462B , #FD5631, #FD5B32);
+  --bg-gradient: linear-gradient(#FD5631, #DC462B);
   --card-bg: rgba(255, 255, 255, 0.95);
   --text-color: #2e2e2e;
   --accent-color: #ff6f61; /* Coral */
@@ -54,7 +54,7 @@ body {
 }
 
 .nav-menu li a {
-  color: #fff;
+  color: #000000;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
