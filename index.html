@@ -1,94 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wiggas Community</title>
-<link rel="preload" href="styles.css" as="style">
-<link rel="preload" href="script.js" as="script">
-<link rel="stylesheet" href="styles.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiggas Community</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav>
-<div class="logo">viralhit.online</div>
-<ul>
-<li><a href="#" onclick="showSection('home')">Home</a></li>
-<li><a href="#" onclick="showSection('groupChats')">Group Chats</a></li>
-<li><a href="#" onclick="showSection('aboutUs')">About us</a></li>
-</ul>
-</nav>
-<hr>
-<main>
-    <section id="home" class="section active">
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Learn and Earn with Our Courses</h1>
-                <p>Buy once, earn forever.</p>
+    <nav class="navbar">
+        <div class="logo">viralhit.online</div>
+        <ul class="nav-menu">
+            <li><a href="#" onclick="showSection('home')" aria-label="Go to Home">Home</a></li>
+            <li><a href="#" onclick="showSection('groupChats')" aria-label="Go to Group Chats">Group Chats</a></li>
+            <li><a href="#" onclick="showSection('aboutUs')" aria-label="Go to About Us">About Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home" class="section active">
+            <div id="hero">
+                <div class="hero-content">
+                    <h1>Learn and Earn with Our Courses</h1>
+                    <p>Buy once, earn forever.</p>
+                    <a href="#products" class="cta-button">Explore Courses</a>
+                </div>
+            </div>
+            <div id="products" class="product-grid">
+                <a href="course1.html" class="product-card">
+                    <div class="card-header">
+                        <img src="images/c15f7f168947249b08bca9603ff3e042.jpg" alt="Bronze Bundle">
+                    </div>
+                    <div class="card-body">
+                        <h2>Instagram Growth Bundle (Bronze)</h2>
+                        <p class="price">Rs.100</p>
+                        <ul>
+                            <li>Instagram Growth Tips & Tricks</li>
+                            <li>75+ Instagram Highlight Covers</li>
+                            <li>90+ Powerful Set of Hashtags</li>
+                        </ul>
+                    </div>
+                </a>
+                <a href="course2.html" class="product-card">
+                    <div class="card-header">
+                        <img src="images/2d49545410650234135dbaac3a381c5e.jpg" alt="Gold Bundle">
+                    </div>
+                    <div class="card-body">
+                        <h2>Instagram Growth Bundle (Gold)</h2>
+                        <p class="price">Rs.200</p>
+                        <ul>
+                            <li>All Bronze Bundle Content</li>
+                            <li>Instagram Reels Mastery Guide</li>
+                        </ul>
+                    </div>
+                </a>
+                <a href="course3.html" class="product-card">
+                    <div class="card-header">
+                        <img src="images/c15f7f168947249b08bca9603ff3e042.jpg" alt="Diamond Bundle">
+                    </div>
+                    <div class="card-body">
+                        <h2>Instagram Growth Bundle (Diamond)</h2>
+                        <p class="price">Rs.300</p>
+                        <ul>
+                            <li>All Gold + Bronze Content</li>
+                            <li>Instagram Growth Mastery Guide</li>
+                        </ul>
+                    </div>
+                </a>
             </div>
         </section>
-        <div class="product-grid">
-            <!-- Bronze Bundle -->
-            <a href="course1.html" class="product-card">
-                <div class="card-header">
-                    <img src="images/c15f7f168947249b08bca9603ff3e042.jpg" alt="Bronze Bundle">
-                </div>
-                <div class="card-body">
-                    <h2>Instagram Growth Bundle (Bronze)</h2>
-                </div>
-            </a>
-
-            <!-- Gold Bundle -->
-            <a href="course2.html" class="product-card">
-                <div class="card-header">
-                    <img src="images/2d49545410650234135dbaac3a381c5e.jpg" alt="Gold Bundle">
-                </div>
-                <div class="card-body">
-                    <h2>Instagram Growth Bundle (Gold)</h2>
-                    <p class="price">Rs.200</p>
-                </div>
-            </a>
-
-            <!-- Diamond Bundle -->
-            <a href="course3.html" class="product-card">
-                <div class="card-header">
-                    <img src="images/c15f7f168947249b08bca9603ff3e042.jpg" alt="Diamond Bundle">
-                </div>
-                <div class="card-body">
-                    <h2>Instagram Growth Bundle (Diamond)</h2>
-                    <p class="price">Rs.300</p>
-                </div>
-            </a>
-        </div>
-    </section>
-<section id="groupChats" class="section">
-<p>Message on <a href="https://www.instagram.com/rulerofheavens/?utm_source=ig_web_button_share_sheet" class="rulerlink">@rulerofheavens</a> to add your Group Chat link in this page.</p>
-<br>
-<a href="https://ig.me/j/AbYmYa-4QNxVhaWh/" class="post">
-<div>
-<h2>Worst Dynasty:</h2>
-<p>https://ig.me/j/AbYmYa-4QNxVhaWh/</p>
-</div>
-</a>
-<a href="https://ig.me/j/AbZ-WRE-GRgjpZem/" class="post">
-<div>
-<h2>Unbound GC:</h2>
-<p>https://ig.me/j/AbZ-WRE-GRgjpZem/</p>
-</div>
-</a>
-<a href="https://ig.me/j/AbbuWLjSqCdwy9zv/" class="post">
-<div>
-<h2>Inbox GC:</h2>
-<p>https://ig.me/j/AbbuWLjSqCdwy9zv/</p>
-</div>
-</a>
-</section>
-<section id="aboutUs" class="section">
-<p>Details will be added soon</p>
-</section>
-</main>
-<script src="script.js"></script>
+        <section id="groupChats" class="section">
+            <p>Message on <a href="https://www.instagram.com/rulerofheavens/" class="rulerlink">@rulerofheavens</a> to add your Group Chat link here.</p>
+            <div class="post-list">
+                <a href="https://ig.me/j/AbYmYa-4QNxVhaWh/" class="post">
+                    <h2>Worst Dynasty</h2>
+                    <p>https://ig.me/j/AbYmYa-4QNxVhaWh/</p>
+                </a>
+                <a href="https://ig.me/j/AbZ-WRE-GRgjpZem/" class="post">
+                    <h2>Unbound GC</h2>
+                    <p>https://ig.me/j/AbZ-WRE-GRgjpZem/</p>
+                </a>
+                <a href="https://ig.me/j/AbbuWLjSqCdwy9zv/" class="post">
+                    <h2>Inbox GC</h2>
+                    <p>https://ig.me/j/AbbuWLjSqCdwy9zv/</p>
+                </a>
+            </div>
+        </section>
+        <section id="aboutUs" class="section">
+            <p>Details will be added soon.</p>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
