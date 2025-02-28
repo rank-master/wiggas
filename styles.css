@@ -1,12 +1,12 @@
-/* CSS Variables for Theming */
+/* CSS Variables for Beachy Theme */
 :root {
-  --primary-bg: #1a1a1a;
-  --card-bg: #2a2b30;
-  --text-color: #ffffff;
-  --accent-color: #c14bb1;
-  --highlight-color: #41a728;
-  --hover-color: lightsteelblue;
-  --shadow: rgba(0, 0, 0, 0.3);
+  --primary-bg: #f5e9d4; /* Sandy beige */
+  --card-bg: #ffffff; /* Crisp white for cards */
+  --text-color: #333333; /* Soft dark gray */
+  --accent-color: #ff6f61; /* Sunset coral */
+  --highlight-color: #4a90e2; /* Ocean blue */
+  --hover-color: #f9c74f; /* Sunny yellow */
+  --shadow: rgba(0, 0, 0, 0.15);
 }
 
 /* Reset and Base Styles */
@@ -27,31 +27,33 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  background: linear-gradient(135deg, #000000, #333333);
-  padding: 1rem;
+  background: linear-gradient(135deg, #ffffff, #e0f7fa); /* White to light cyan */
+  padding: 0.75rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 8px var(--shadow);
   z-index: 1000;
 }
 
 .logo {
   font-family: 'Gochi Hand', serif;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  color: var(--text-color);
+  color: var(--accent-color);
 }
 
 .nav-menu {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .nav-menu li a {
   color: var(--text-color);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 1rem;
   transition: color 0.3s ease;
 }
 
@@ -80,34 +82,40 @@ body {
 
 /* Hero Section */
 #hero {
-  background: linear-gradient(to bottom, #000000, var(--primary-bg));
+  background: linear-gradient(to bottom, #87ceeb, #f5e9d4); /* Sky blue to sandy beige */
   text-align: center;
   padding: 4rem 1rem;
 }
 
 .hero-content h1 {
+  font-family: 'Gochi Hand', serif;
   font-size: 2.5rem;
+  color: var(--accent-color);
   margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .hero-content p {
-  color: var(--accent-color);
+  color: var(--highlight-color);
   font-size: 1.25rem;
   margin-bottom: 2rem;
+  font-style: italic;
 }
 
 .cta-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   background: var(--accent-color);
-  color: var(--text-color);
+  color: #ffffff;
   text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s ease;
+  border-radius: 25px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-weight: 600;
 }
 
 .cta-button:hover {
   background: var(--hover-color);
+  transform: scale(1.05);
 }
 
 /* Product Grid */
@@ -120,8 +128,8 @@ body {
 
 .product-card {
   background: var(--card-bg);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px var(--shadow);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
   color: var(--text-color);
@@ -137,6 +145,7 @@ body {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  border-bottom: 2px solid var(--highlight-color);
 }
 
 .card-body {
@@ -145,6 +154,7 @@ body {
 
 .card-body h2 {
   font-size: 1.25rem;
+  color: var(--accent-color);
   margin-bottom: 0.75rem;
 }
 
@@ -167,7 +177,7 @@ body {
 }
 
 .card-body li::before {
-  content: '✓';
+  content: '🌴'; /* Beachy vibe */
   position: absolute;
   left: 0;
   color: var(--highlight-color);
@@ -181,12 +191,10 @@ body {
 }
 
 .post {
-  display: flex;
-  flex-direction: column;
   background: var(--card-bg);
   padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px var(--shadow);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
   color: var(--text-color);
@@ -199,16 +207,17 @@ body {
 
 .post h2 {
   font-size: 1.1rem;
+  color: var(--accent-color);
   margin-bottom: 0.5rem;
 }
 
 .post p {
   font-size: 0.9rem;
-  color: #ccc;
+  color: #666;
 }
 
 .rulerlink {
-  color: var(--accent-color);
+  color: var(--highlight-color);
   text-decoration: none;
 }
 
@@ -219,20 +228,23 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   .navbar {
-      flex-direction: column;
       padding: 0.5rem;
   }
 
+  .logo {
+      font-size: 1.5rem;
+  }
+
   .nav-menu {
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-      text-align: center;
-      padding: 1rem 0;
+      gap: 0.75rem;
+  }
+
+  .nav-menu li a {
+      font-size: 0.9rem;
   }
 
   .hero-content h1 {
-      font-size: 1.75rem;
+      font-size: 2rem;
   }
 
   .hero-content p {
@@ -250,7 +262,11 @@ body {
 
 @media (max-width: 480px) {
   .logo {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
+  }
+
+  .nav-menu li a {
+      font-size: 0.8rem;
   }
 
   .hero-content h1 {
