@@ -73,7 +73,7 @@ body {
 
 /* Sections */
 .section {
-    padding: 0rem;
+    padding: 0;
     max-width: 1200px;
     margin: 0 auto;
     transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
@@ -166,6 +166,10 @@ body {
     flex: 0 0 auto;
     width: 280px;
     scroll-snap-align: start;
+}
+
+.product-card:focus {
+    outline: none; /* Removes the default focus outline */
 }
 
 .product-card:hover {
