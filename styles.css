@@ -1,12 +1,11 @@
-/* Vibrant Palette Inspired by Yeeeoww.com */
+/* Simplified Palette without Purple */
 :root {
-    --bg-gradient: linear-gradient(135deg, #ff6f61, #26a69a, #f9c74f, #ab47bc); /* Coral, teal, yellow, purple */
-    --card-bg: rgba(255, 255, 255, 0.9);
+    --bg-gradient: linear-gradient(135deg, #ff6f61, #26a69a); /* Coral to teal */
+    --card-bg: rgba(255, 255, 255, 0.95);
     --text-color: #2e2e2e;
     --accent-color: #ff6f61; /* Coral */
     --highlight-color: #26a69a; /* Teal */
     --hover-color: #f9c74f; /* Yellow */
-    --pop-color: #ab47bc; /* Purple */
     --shadow: rgba(0, 0, 0, 0.25);
 }
 
@@ -30,11 +29,11 @@ body {
 .navbar {
     position: sticky;
     top: 0;
-    background: linear-gradient(to right, var(--accent-color), var(--pop-color));
+    background: linear-gradient(to right, var(--accent-color), var(--highlight-color));
     padding: 1.5rem 1rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; /* Straightens nav items */
     box-shadow: 0 4px 12px var(--shadow);
     z-index: 1000;
     border-radius: 0 0 20px 20px;
@@ -45,13 +44,13 @@ body {
     font-size: 2rem;
     color: #fff;
     text-shadow: 2px 2px 4px var(--shadow);
-    transform: rotate(-2deg);
 }
 
 .nav-menu {
     list-style: none;
     display: flex;
     gap: 1.5rem;
+    align-items: center; /* Ensures straight alignment */
 }
 
 .nav-menu li a {
@@ -96,7 +95,7 @@ body {
     text-align: center;
     padding: 5rem 1rem;
     position: relative;
-    border-bottom: 4px solid var(--pop-color);
+    border-bottom: 4px solid var(--hover-color);
 }
 
 #hero::before {
@@ -106,19 +105,15 @@ body {
     left: 20px;
     font-size: 2rem;
     color: var(--hover-color);
-    transform: rotate(15deg);
 }
 
 .hero-content h1 {
     font-family: 'Bubblegum Sans', cursive;
     font-size: 3rem;
-    background: linear-gradient(45deg, var(--accent-color), var(--highlight-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #fff; /* Solid white for clarity */
     margin-bottom: 1.5rem;
-    text-shadow: 3px 3px 6px var(--shadow);
-    transform: rotate(-1deg);
+    text-shadow: 2px 2px 4px var(--shadow); /* Reduced blur */
+    -webkit-text-stroke: 1px var(--accent-color); /* Sharp outline */
 }
 
 .hero-content p {
@@ -126,7 +121,7 @@ body {
     font-size: 1.75rem;
     color: #fff;
     margin-bottom: 2rem;
-    background: rgba(171, 71, 188, 0.2);
+    background: rgba(38, 166, 154, 0.2);
     padding: 0.5rem 1rem;
     border-radius: 15px;
 }
@@ -134,7 +129,7 @@ body {
 .cta-button {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background: var(--pop-color);
+    background: var(--highlight-color);
     color: #fff;
     text-decoration: none;
     border-radius: 30px;
@@ -171,7 +166,7 @@ body {
 }
 
 .product-card:hover {
-    transform: translateY(-5px) rotate(1deg);
+    transform: translateY(-5px);
     box-shadow: 0 10px 20px var(--shadow);
     border-color: var(--accent-color);
 }
@@ -197,11 +192,10 @@ body {
     font-size: 1.5rem;
     color: var(--accent-color);
     margin-bottom: 0.75rem;
-    transform: rotate(-2deg);
 }
 
 .card-body .price {
-    color: var(--pop-color);
+    color: var(--highlight-color);
     font-weight: bold;
     font-size: 1.25rem;
     margin-bottom: 1rem;
@@ -225,7 +219,7 @@ body {
     content: '🌈';
     position: absolute;
     left: 0;
-    color: var(--highlight-color);
+    color: var(--hover-color);
 }
 
 /* Posts (Group Chats) */
@@ -244,12 +238,12 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: var(--text-color);
-    border: 3px solid var(--pop-color);
+    border: 3px solid var(--highlight-color);
     position: relative;
 }
 
 .post:hover {
-    transform: translateY(-5px) rotate(-1deg);
+    transform: translateY(-5px);
     box-shadow: 0 10px 20px var(--shadow);
     border-color: var(--hover-color);
 }
@@ -267,7 +261,7 @@ body {
 .post h2 {
     font-family: 'Bubblegum Sans', cursive;
     font-size: 1.25rem;
-    color: var(--highlight-color);
+    color: var(--accent-color);
     margin-bottom: 0.5rem;
 }
 
@@ -280,7 +274,7 @@ body {
 }
 
 .rulerlink {
-    color: var(--pop-color);
+    color: var(--highlight-color);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
