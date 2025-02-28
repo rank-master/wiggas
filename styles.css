@@ -1,6 +1,6 @@
 /* Simplified Palette without Purple */
 :root {
-  --bg-gradient: linear-gradient(#FD5631, #DC462B);
+  --bg-gradient: #fa8072;
   --card-bg: rgba(255, 255, 255, 0.95);
   --text-color: #2e2e2e;
   --accent-color: #ff6f61; /* Coral */
