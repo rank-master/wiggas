@@ -36,7 +36,7 @@ body {
   align-items: center; /* Straightens nav items */
   /*box-shadow: 0 4px 12px var(--shadow);*/
   z-index: 1000;
-  border-radius: 20px 20px 20px 20px;
+  border-radius: 0;
 }
 
 .logo {
