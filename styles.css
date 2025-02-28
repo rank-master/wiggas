@@ -18,7 +18,7 @@
 
 body {
   font-family: 'Poppins', Arial, sans-serif;
-  background: var(--bg-gradient);
+  background: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
   position: relative;
