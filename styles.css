@@ -112,7 +112,7 @@ body {
   color: #fff; /* Solid white for clarity */
   margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px var(--shadow); /* Reduced blur */
-  -webkit-text-stroke: 1px var(--accent-color); /* Sharp outline */
+  font-weight: 300;
 }
 
 .hero-content p {
