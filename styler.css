@@ -147,4 +147,173 @@ body {
 }
 
 .course-features .icon {
-  font-size: 1.5rem
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+/* Instructor Section */
+.instructor {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.instructor-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.instructor-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 6px 12px var(--shadow);
+}
+
+.instructor-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.instructor-info p {
+  font-size: 1rem;
+  color: var(--secondary);
+}
+
+/* Testimonials */
+.testimonials {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background: var(--light);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  color: var(--secondary);
+}
+
+.testimonial-card h4 {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: var(--dark);
+}
+
+/* FAQ Section */
+.faq {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.faq-item {
+  background: var(--light);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--shadow);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.faq-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.faq-item p {
+  font-size: 1rem;
+  color: var(--secondary);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--accent);
+  color: white;
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.cta-section .cta-button {
+  background: white;
+  color: var(--accent);
+}
+
+.cta-section .cta-button:hover {
+  background: var(--highlight);
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  background: var(--light);
+  margin-top: 4rem;
+}
+
+footer p {
+  font-size: 1rem;
+  color: var(--secondary);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.footer-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+  }
+
+  .instructor-card {
+    flex-direction: column;
+  }
+}
