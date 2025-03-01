@@ -65,6 +65,11 @@ body {
     color: var(--accent);
 }
 
+.nav-menu li a.active {
+    background: var(--highlight-color);
+    color: var(--text-color);
+}
+
 /* Hero Section */
 .hero {
     padding: 6rem 2rem;
