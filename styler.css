@@ -18,12 +18,13 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
   background: var(--primary-gradient);
   color: var(--dark);
-  line-height: 1.6;
+  min-height: 100vh;
 }
 
-/* Header */
+/* Navigation */
 .navbar {
   position: sticky;
   top: 0;
@@ -64,155 +65,98 @@ body {
   color: var(--accent);
 }
 
-/* Hero Section */
-.product-hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* Product Detail Section */
+.product-detail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
   padding: 4rem 2rem;
-  background: var(--light);
-  border-radius: 20px;
-  margin: 2rem auto;
   max-width: 1200px;
+  margin: 0 auto;
 }
 
-.hero-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--dark);
-}
-
-.hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  color: var(--secondary);
-}
-
-.price-tag {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-
-.cta-button {
-  padding: 1rem 2.5rem;
-  background: var(--accent);
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(255, 122, 89, 0.3);
-}
-
-.cta-button:hover {
-  transform: translateY(-3px);
-}
-
-.hero-image img {
-  max-width: 400px;
-  border-radius: 20px;
+.product-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
   box-shadow: 0 6px 12px var(--shadow);
+  transition: transform 0.2s ease;
 }
 
-/* Course Features */
-.course-features {
-  padding: 4rem 2rem;
-  text-align: center;
+.product-gallery img:hover {
+  transform: scale(1.05);
 }
 
-.course-features h2 {
+.product-info {
+  background: var(--light);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.product-info h1 {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: var(--dark);
+}
+
+.price {
+  margin-bottom: 1.5rem;
+}
+
+.original-price {
+  font-size: 1.5rem;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .course-features ul {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  justify-content: center;
+  padding: 0;
 }
 
 .course-features li {
-  background: var(--light);
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px var(--shadow);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--secondary);
 }
 
-.course-features .icon {
-  font-size: 1.5rem;
+.course-features li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
   color: var(--accent);
 }
 
-/* Instructor Section */
-.instructor {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.instructor-card {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin: 2rem auto;
-  max-width: 800px;
-}
-
-.instructor-photo {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 6px 12px var(--shadow);
-}
-
-.instructor-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--dark);
-}
-
-.instructor-info p {
-  font-size: 1rem;
-  color: var(--secondary);
-}
-
-/* Testimonials */
-.testimonials {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+.enrollment {
   margin-top: 2rem;
+  text-align: center;
 }
 
-.testimonial-card {
-  background: var(--light);
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px var(--shadow);
+.enroll-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--accent);
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 122, 89, 0.3);
 }
 
-.testimonial-card p {
-  font-size: 1rem;
+.enroll-btn:hover {
+  background: #ff5c38;
+  transform: translateY(-3px);
+}
+
+.guarantee {
+  font-size: 0.9rem;
   color: var(--secondary);
-}
-
-.testimonial-card h4 {
-  font-size: 1.25rem;
-  margin-top: 1rem;
-  color: var(--dark);
+  margin-top: 0.5rem;
 }
 
 /* FAQ Section */
@@ -221,54 +165,30 @@ body {
   text-align: center;
 }
 
-.faq-item {
-  background: var(--light);
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px var(--shadow);
+.faq h2 {
+  font-size: 1.75rem;
   margin-bottom: 1.5rem;
-  text-align: left;
-}
-
-.faq-item h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
   color: var(--dark);
 }
 
-.faq-item p {
-  font-size: 1rem;
-  color: var(--secondary);
+.faq-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* CTA Section */
-.cta-section {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: var(--accent);
-  color: white;
-  border-radius: 20px;
-  margin: 2rem auto;
-  max-width: 1200px;
-}
-
-.cta-section h2 {
-  font-size: 2.5rem;
+.faq-list li {
+  background: var(--light);
+  padding: 1rem;
+  border-radius: 10px;
   margin-bottom: 1rem;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.2s ease;
 }
 
-.cta-section p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-}
-
-.cta-section .cta-button {
-  background: white;
-  color: var(--accent);
-}
-
-.cta-section .cta-button:hover {
-  background: var(--highlight);
+.faq-list li:hover {
+  transform: translateY(-3px);
 }
 
 /* Footer */
@@ -277,10 +197,11 @@ footer {
   text-align: center;
   background: var(--light);
   margin-top: 4rem;
+  box-shadow: 0 -4px 12px var(--shadow);
 }
 
 footer p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--secondary);
 }
 
@@ -288,7 +209,7 @@ footer p {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 1rem;
 }
 
@@ -296,24 +217,48 @@ footer p {
   color: var(--accent);
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  text-decoration: underline;
+  color: #ff5c38;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .product-hero {
+  .navbar {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
   }
 
-  .hero-image img {
-    max-width: 100%;
+  .nav-menu {
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .instructor-card {
-    flex-direction: column;
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .faq h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .nav-menu a {
+    font-size: 0.9rem;
+  }
+
+  .product-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .enroll-btn {
+    padding: 0.75rem 1.5rem;
   }
 }
