@@ -10,7 +10,3 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
         link.classList.add('active');
     }
 });
-
-document.getElementById('menu-toggle').addEventListener('click', () => {
-    document.getElementById('nav-menu').classList.toggle('active');
-});
