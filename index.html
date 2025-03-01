@@ -14,18 +14,18 @@
         <div class="logo">viralhit<span>.online</span></div>
         <button id="menu-toggle" aria-label="Open Menu">☰</button>
         <ul class="nav-menu desktop-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#education">How It Works</a></li>
-            <li><a href="#group-chats">Group Chats</a></li>
-            <li><a href="#about">About Us</a></li>
+            <li><a href="#home" onclick="scrollToSection('home'); return false;" aria-label="Scroll to Home">Home</a></li>
+            <li><a href="#products" onclick="scrollToSection('products'); return false;" aria-label="Scroll to Products">Products</a></li>
+            <li><a href="#education" onclick="scrollToSection('education'); return false;" aria-label="Scroll to How It Works">How It Works</a></li>
+            <li><a href="#group-chats" onclick="scrollToSection('group-chats'); return false;" aria-label="Scroll to Group Chats">Group Chats</a></li>
+            <li><a href="#about" onclick="scrollToSection('about'); return false;" aria-label="Scroll to About">About</a></li>
         </ul>
         <ul class="nav-menu mobile-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#education">How It Works</a></li>
-            <li><a href="#group-chats">Group Chats</a></li>
-            <li><a href="#about">About Us</a></li>
+            <li><a href="#home" onclick="scrollToSection('home'); return false;" aria-label="Scroll to Home">Home</a></li>
+            <li><a href="#products" onclick="scrollToSection('products'); return false;" aria-label="Scroll to Products">Products</a></li>
+            <li><a href="#education" onclick="scrollToSection('education'); return false;" aria-label="Scroll to How It Works">How It Works</a></li>
+            <li><a href="#group-chats" onclick="scrollToSection('group-chats'); return false;" aria-label="Scroll to Group Chats">Group Chats</a></li>
+            <li><a href="#about" onclick="scrollToSection('about'); return false;" aria-label="Scroll to About">About</a></li>
         </ul>
     </nav>
 
@@ -34,7 +34,7 @@
         <div class="hero-content">
             <h1>Earn While You Learn</h1>
             <p>Buy once, earn forever.</p>
-            <a href="#products" class="cta-button">Get Started</a>
+            <a href="#products" onclick="scrollToSection('products'); return false;" aria-label="Scroll to Products" class="cta-button">Get Started</a>
         </div>
     </section>
 
@@ -128,7 +128,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 ViralHit | <a href="#about">About Us</a></p>
+        <p>&copy; 2024 viralhit.online | <a href="#about">About Us</a></p>
     </footer>
 
     <!-- JavaScript for Mobile Menu -->
