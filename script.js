@@ -12,3 +12,10 @@ function showSection(sectionId) {
     selectedSection.style.display = 'block';
   }
 }
+
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
